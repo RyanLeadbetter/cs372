@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 <div class="container-fluid chessheader">
@@ -16,11 +17,22 @@
 
 <br>
 <div id="board" class="board"></div>
+<div class="info">
 
+    <select hidden id="search-depth">
+        <option value="1" id="Easy">1</option>
+        <option value="2" id="Medium" selected>2</option>
+        <option value="3" id="Hard">3</option>
+    </select>
+
+    <br>
+    <div hidden id="move-history" class="move-history">
+    </div>
+</div>
 <script src="lib/jquery/jquery-3.2.1.min.js"></script>
 <script src="lib/chessboardjs/js/chess.js"></script>
 <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
-<script src="pvp.js"></script>
+<script src="ai.js"></script>
 
 </body>
 </html>

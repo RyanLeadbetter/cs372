@@ -61,6 +61,7 @@ if (isset($_POST["Login"]))
 	
 	sqlsrv_close($conn);
 }
+	echo "Hello world";
 ?>
     
 <form id="LogIn" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">

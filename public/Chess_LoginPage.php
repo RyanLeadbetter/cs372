@@ -61,6 +61,7 @@ if (isset($_POST["Login"]))
 	
 	sqlsrv_close($conn);
 }
+else	
 	echo "Hello world";
 ?>
     

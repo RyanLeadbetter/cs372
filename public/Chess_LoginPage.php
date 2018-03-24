@@ -25,7 +25,6 @@ session_start();
 <br>
 
 <?php
-if (isset($_POST["Login"]))
 {
     $conn = sqlsrv_connect("chess372", "chess372", "Project372", "chess_game");
 	
@@ -61,8 +60,6 @@ if (isset($_POST["Login"]))
 	
 	sqlsrv_close($conn);
 }
-else	
-	echo "Hello world";
 ?>
     
 <form id="LogIn" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">

@@ -27,22 +27,22 @@ session_start();
 <?php
 if (isset($_POST["Login"]))
 {
-    $conn = mysqli_connect("localhost", "root", "", "chess_game");
+    $conn = sqlsrv_connect("chess372", "chess372", "Project372", "chess_game");
 	
 	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		die("Connection failed: " . sqlsrv_errors());
 	}
 
     if (trim($_POST["email"]) != "" && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))
     {
         $sql = "SELECT * FROM user_information WHERE email='$_POST[email]'";
-	 $result = mysqli_query($conn, $sql);
-	 $pass = mysqli_fetch_assoc($result);
+	 $result = sqlsrv_query($conn, $sql);
+	 $pass = sqlsrv_fetch_assoc($result);
         if ($pass['password'] != NULL && $pass['password'] == $_POST["pwd"])
         {
 	     $user = $_POST['email'];
 	     $_SESSION['email'] = $email;
-	     header("Location: http://localhost/Welcome.html");
+	     header("Location: Welcome.html");
         }
         else
         {
@@ -53,13 +53,13 @@ if (isset($_POST["Login"]))
         echo "Error, one of the values you have entered is in an inappropriate format.";
     }
     
-    if (mysqli_query($conn, $sql)) {
+    if (sqlsrv_query($conn, $sql)) {
 	} 
     else { 
-		echo "Error: " . $sql . " " . mysqli_error($conn);
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
 	}
 	
-	mysqli_close($conn);
+	sqlsrv_close($conn);
 }
 ?>
     

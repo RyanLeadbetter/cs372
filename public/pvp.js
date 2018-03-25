@@ -1,4 +1,4 @@
-var page-game,
+var board,
   game = new Chess();
 
 var removeGreySquares = function() {
@@ -79,4 +79,4 @@ var cfg = {
   onMouseoverSquare: onMouseoverSquare,
   onSnapEnd: onSnapEnd
 };
-board = ChessBoard('board', cfg);
+board = ChessBoard('page-game', cfg);

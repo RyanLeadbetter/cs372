@@ -27,23 +27,25 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 
 <?php
 if (isset($_SESSION['email'])) {
-    $conn = mysqli_connect("localhost", "root", "", "chess_game");
+    $connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:chess372.database.windows.net,1433";
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
 	
 	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		die("Connection failed: " . sqlsrv_errors());
 	}
     $sql = "SELECT * FROM user_information WHERE email='$_SESSION[email]'";
-    $result = mysqli_query($conn, $sql);
-	 $pass = mysqli_fetch_assoc($result);
+    $result = sqlsrv_query($conn, $sql);
+    $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
     echo 'Welcome, ' . $pass['firstName'];
     
-    if (mysqli_query($conn, $sql)) {
+    if (sqlsrv_query($conn, $sql)) {
 	} 
     else { 
-		echo "Error: " . $sql . " " . mysqli_error($conn);
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
 	}
 	
-	mysqli_close($conn);
+	sqlsrv_close($conn);
 }
     
 if (isset($_GET["logout"]))

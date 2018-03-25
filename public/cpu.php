@@ -121,9 +121,6 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     	$("#button1").text("Return to main menu");
 	result = "lose";
     }
-window.onhashchange = function () {
-  alert("you tryin to cheat?");
-};
 </script>
 </body>
 </html>

@@ -28,7 +28,8 @@ session_start();
 if (isset($_POST["Login"]))
 {
 	echo "Hello world";
-    $conn = sqlsrv_connect("chess372", "chess372", "Project372", "chess_game");
+   $connectioninfo=array("Database"=>"chess_game","UID"=>"chess372","PWD"=>"Project372")
+   $conn = sqlsrv_connect("chess372",$connectioninfo);
 	
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_errors());

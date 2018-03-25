@@ -162,25 +162,10 @@
             (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
             (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
             (game.turn() !== playerColor[0])) {
-            alert("You Lose");
+            alert("You Win!!!");
             return false;
             }
       };  
-   /* 
-   var onLoss = function(source, piece, position, orientation){
-        if (game.game_over() === true){
-            alert("You Lose");
-          
-            if (game.turn() === playerColor[0]){
-            alert("You Lose");
-            }
-        else{
-            alert("You Win");
-        }
-        }
-   }
-   };
-   */
       var onDrop = function(source, target) {
         // see if the move is legal
         var move = game.move({

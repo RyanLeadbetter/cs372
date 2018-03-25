@@ -44,7 +44,9 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
           <h4 class="modal-title">Select a difficulty:</h4>
         </div>
         <div class="modal-body">
-          <p>Put options here</p>
+          <input type="radio" name="gender" value="male"> Easy<br>
+          <input type="radio" name="gender" value="female"> Medium<br>
+          <input type="radio" name="gender" value="other"> Hard
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-block" data-dismiss="modal">Ok</button>

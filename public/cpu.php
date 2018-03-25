@@ -15,12 +15,11 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 <body>
 <script>
     function selectDifficulty() {
-        alert($('#Medium').is(':selected'));
-        if ( $("input[name=difficulty]:checked").val()) == "easy")
+        if ( $("input[name=difficulty]:checked").val() == "easy")
             $('#Easy').prop("selected", true);
-        else if ( $("input[name=difficulty]:checked").val()) == "medium")
+        else if ( $("input[name=difficulty]:checked").val() == "medium")
             $('#Medium').prop("selected", true);
-        else if ( $("input[name=difficulty]:checked").val()) == "hard")
+        else if ( $("input[name=difficulty]:checked").val() == "hard")
             $('#Hard').prop("selected", true);
         $("lightbox").css("display", "none");
     }

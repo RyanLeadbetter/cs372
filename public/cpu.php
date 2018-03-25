@@ -119,7 +119,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     	$("#messageHeader").text("Forfeit?");
     	$("#messageBody").empty();
     	$("#messageBody").append("<p>This match will be recorded as a loss</p>");
-    	$("#button1").text("Return to main menu");
+    	$("#button1").text("Yes");
 	$("#close").css("display", "block");
 	result = "lose";
     }

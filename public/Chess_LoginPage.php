@@ -42,7 +42,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         $sql = "SELECT * FROM user_information WHERE email='$_POST[email]'";
 	 $result = sqlsrv_query($conn, $sql);
 	    echo "The query works";
-	 $pass = sqlsrv_fetch_assoc($result);
+	 $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
 	    echo "The fetch works";
         if ($pass['password'] != NULL && $pass['password'] == $_POST["pwd"])
         {

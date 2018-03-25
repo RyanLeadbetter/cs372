@@ -174,6 +174,7 @@
         else{
             alert("You Win")
         }
+   }
    
       var onDrop = function(source, target) {
         // see if the move is legal

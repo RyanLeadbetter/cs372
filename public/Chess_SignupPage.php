@@ -58,7 +58,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 }
 ?>
 
-<form id="SignUp" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+<form id="SignUp" style="width:500px" action="Chess_SignupPage.php" method="post" enctype="multipart/form-data">
 <div class="container">
     <label><b>First Name</b></label>
     <label id="fname_msg" class="err_msg"></label>

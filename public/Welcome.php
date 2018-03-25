@@ -57,7 +57,7 @@ if (isset($_GET["logout"]))
 ?>
 
 <div class="container">
-    <a class="btn btn-block btn-lg" type="button" href="pvp.html">Start PvP Match</a>
+    <a class="btn btn-block btn-lg" type="button" href="pvp.php">Start PvP Match</a>
     </br>
     <a class="btn btn-block btn-lg" type="button" href="cpu.html">Start AI Match</a>
     </br>

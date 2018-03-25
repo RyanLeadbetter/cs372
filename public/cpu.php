@@ -122,7 +122,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	result = "lose";
     }
 window.onhashchange = function () {
-  alert("you tryin to cheat?);
+  alert("you tryin to cheat?");
 };
 </script>
 </body>

@@ -35,7 +35,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <div hidden id="move-history" class="move-history">
     </div>
 </div>
-<div id="lightbox" class="modal" id="myModal" role="dialog" style="display: block; padding-top: 20%;">
+<div id="lightbox" class="modal" id="myModal" role="dialog" style="display: block;">
     <div class="modal-dialog">
     
       <!-- Modal content-->

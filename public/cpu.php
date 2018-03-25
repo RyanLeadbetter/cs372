@@ -120,7 +120,6 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     	$("#messageBody").append("<p>This match will be recorded as a loss</p>");
     	$("#button1").text("Return to main menu");
 	result = "lose";
-	alert(result);
     }
 </script>
 </body>

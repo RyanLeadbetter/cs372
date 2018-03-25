@@ -17,7 +17,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     function selectDifficulty() {
         alert("Yay you did it");
         alert($('#Medium').is(':selected'));
-        alert($('#radio1').prop("checked"));
+        alert($("input[name=difficulty]:checked"));
         $("myModal").style("display", "none");
     }
 </script>
@@ -52,9 +52,9 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
           <h4 class="modal-title">Select a difficulty:</h4>
         </div>
         <div class="modal-body">
-          <input id="radio1" type="radio" name="gender" value="male"> Easy<br>
-          <input id="radio2" type="radio" name="gender" value="female"> Medium<br>
-          <input id="radio3" type="radio" name="gender" value="other"> Hard
+          <input id="radio1" type="radio" name="difficulty" value="easy"> Easy<br>
+          <input id="radio2" type="radio" name="difficulty" value="medium"> Medium<br>
+          <input id="radio3" type="radio" name="difficulty" value="hard"> Hard
         </div>
         <div class="modal-footer">
           <button onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>

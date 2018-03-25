@@ -32,8 +32,6 @@ $connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Da
 $serverName = "tcp:chess372.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 	
-    $conn = sqlsrv_connect("localhost", "root", "", "chess_game");
-	
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_errors());
 	}

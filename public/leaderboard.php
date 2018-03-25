@@ -34,7 +34,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     $ranking = 0;
 	
 	$result = sqlsrv_query( $conn, $sql, $params);
-	if( $stmt === false ) {
+	if( $result === false ) {
 	     die( print_r( sqlsrv_errors(), true));
 	}
 	echo "test 1";
@@ -74,7 +74,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     $ranking = 0;
 	
 	$result = sqlsrv_query( $conn, $sql, $params);
-	if( $stmt === false ) {
+	if( $result === false ) {
 	     die( print_r( sqlsrv_errors(), true));
 	}
 	echo "test 1";

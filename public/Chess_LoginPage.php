@@ -27,9 +27,11 @@ session_start();
 <?php
 if (isset($_POST["Login"]))
 {
-   $serverName = "chess372";
-   $connectioninfo=array("Database"=>"chess_game","UID"=>"chess372","PWD"=>"Project372");
-   $conn = sqlsrv_connect( $serverName, $connectioninfo);
+
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "chess372@chess372", "pwd" => "{your_password_here}", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:chess372.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 	
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_errors());

@@ -25,7 +25,6 @@ session_start();
 <br>
 
 <?php
-echo htmlspecialchars($_SERVER["PHP_SELF"]);
 if (isset($_POST["Login"]))
 {
 
@@ -73,7 +72,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 }
 ?>
     
-<form id="Login" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+<form id="Login" style="width:500px" action="http://chess372.azurewebsites.net/Chess_LoginPage.php" method="post" enctype="multipart/form-data">
   <div class="container">
     <label><b>Email</b></label>
     <label id="uname_msg" class="err_msg"></label>

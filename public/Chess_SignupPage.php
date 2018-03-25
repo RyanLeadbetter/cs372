@@ -27,11 +27,17 @@ session_start();
 <?php
 if (isset($_POST["Signup"]))
 {
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:chess372.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+	
     $conn = mysqli_connect("localhost", "root", "", "chess_game");
 	
 	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		die("Connection failed: " . sqlsrv_errors());
 	}
+	
     echo "Why are you so mean";
     if (trim($_POST["fname"]) != "" && trim($_POST["lname"]) != "" && trim($_POST["eml"]) != "" && preg_match("/\w+@\w+\.\w+/", $_POST["eml"], $matches) && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))
     {
@@ -41,14 +47,14 @@ if (isset($_POST["Signup"]))
         echo "Error, one of the values you have entered is in an inappropriate format.";
     }
     
-    if (mysqli_query($conn, $sql)) {
-	   header("Location: http://localhost/Chess_LoginPage.php");
+    if (sqlsrv_query($conn, $sql)) {
+	   header("Location: Chess_LoginPage.php");
 	} 
     else { 
-		echo "Error: " . $sql . " " . mysqli_error($conn);
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
 	}
 	
-	mysqli_close($conn);
+	sqlsrv_close($conn);
 }
 ?>
 

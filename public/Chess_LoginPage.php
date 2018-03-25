@@ -41,12 +41,9 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     {
         $sql = "SELECT * FROM user_information WHERE email='$_POST[email]'";
 	 $result = sqlsrv_query($conn, $sql);
-	    echo "The query works";
 	 $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
-	    echo "The fetch works";
         if ($pass['password'] != NULL && $pass['password'] == $_POST["pwd"])
         {
-	     echo "and it gets this far";
 	     $user = $_POST['email'];
 	     $_SESSION['email'] = $email;
 	     header("Location: Welcome.html");

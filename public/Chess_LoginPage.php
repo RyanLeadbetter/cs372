@@ -67,8 +67,9 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	}
 	
 	sqlsrv_close($conn);
-}
+
 */
+}
 ?>
     
 <form id="Login" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">

@@ -36,10 +36,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_errors());
 	}
-	else{
-		echo "hello";
-	}
-/*
+
     if (trim($_POST["email"]) != "" && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))
     {
         $sql = "SELECT * FROM user_information WHERE email='$_POST[email]'";
@@ -68,7 +65,6 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	
 	sqlsrv_close($conn);
 
-*/
 }
 ?>
     

@@ -205,6 +205,7 @@ $('#button1').click(function() {
      url: "cpu.php",
     data: { 'result': result }
     }).done(function( msg ) {
+         window.location.href = "Welcome.php";
     });    
 });
 

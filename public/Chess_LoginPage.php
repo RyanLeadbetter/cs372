@@ -46,7 +46,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         {
 	     $email = $_POST['email'];
 	     $_SESSION['email'] = $email;
-	     header("Location: Welcome.html");
+	     header("Location: Welcome.php");
         }
         else
         {

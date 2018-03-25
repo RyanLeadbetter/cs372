@@ -43,7 +43,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         <th>Draws</th>
         <th>Games Played</th>
         </tr>";
-    while($row = sqlsrv_fetch_assoc($result)) {
+    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
         $ranking++;
         echo "<tr>";
         echo "<td class='text-center'>" . $ranking . "</td>";
@@ -70,7 +70,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         <th>Draws</th>
         <th>Games Played</th>
         </tr>";
-    while($row = sqlsrv_fetch_assoc($result)) {
+    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
         $ranking++;
         echo "<tr>";
         echo "<td class='text-center'>" . $ranking . "</td>";

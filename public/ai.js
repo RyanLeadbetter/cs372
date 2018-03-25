@@ -186,6 +186,8 @@ var onDragStart = function (source, piece, position, orientation) {
     }
 };
 
+var result = "";
+
 var displayMessage = function (message) {
     $("#lightbox").css("display", "block");
     $("#messageHeader").text(message);
@@ -194,18 +196,35 @@ var displayMessage = function (message) {
     $("#button1").text("Return to main menu");
 };
 
+$('#button1').click(function() {
+    if ( result == "") {
+        alert ("returns without executing);
+        return;
+    }
+     $.ajax({
+     type: "POST",
+     url: "cpu.php",
+    data: { 'result': result }
+    }).done(function( msg ) {
+     alert( "Data Saved: " + msg );
+    });    
+});
+
 var makeBestMove = function () {
     var bestMove = getBestMove(game);
     game.ugly_move(bestMove);
     board.position(game.fen());
     renderMoveHistory(game.history());
     if (game.game_over() && game.in_checkmate) {
+        result = "lose";
         displayMessage("Checkmate! You lose");
     }
     else if (game.game_over() && game.in_draw()) {
+        result = "draw";
         displayMessage('Draw!');
     }
     else if (game.game_over() && game.in_stalemate()) {
+        result = "draw";
         displayMessage('Stalemate! It\'s a draw');
     }
 };
@@ -214,12 +233,15 @@ var makeBestMove = function () {
 var positionCount;
 var getBestMove = function (game) {
     if (game.game_over() && game.in_checkmate) {
+        result = "win";
         displayMessage("Checkmate! You win");
     }
     else if (game.game_over() && game.in_draw()) {
+        result = "draw";
         displayMessage('Draw!');
     }
     else if (game.game_over() && game.in_stalemate()) {
+        result = "draw";
         displayMessage('Stalemate! It\'s a draw');
     }
     positionCount = 0;

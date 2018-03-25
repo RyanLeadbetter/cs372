@@ -18,7 +18,7 @@
                 </div>
             </div>
             <br>
-  <a class='btn' type="button" href='Welcome.html'> Return</a>
+  <a class='btn' type="button" href='Welcome.php'> Return</a>
     
 <?php
 $connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);

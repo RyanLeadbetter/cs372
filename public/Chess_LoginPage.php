@@ -25,6 +25,7 @@ session_start();
 <br>
 
 <?php
+echo htmlspecialchars($_SERVER["PHP_SELF"]);
 if (isset($_POST["Login"]))
 {
 

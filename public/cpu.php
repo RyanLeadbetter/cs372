@@ -63,7 +63,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
           <input id="radio3" type="radio" name="difficulty" value="hard"> Hard
         </div>
         <div class="modal-footer">
-          <button onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
+          <button id="button1" onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
         </div>
       </div>
       

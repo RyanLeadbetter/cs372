@@ -17,15 +17,15 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     function selectDifficulty() {
         if ( $("input[name=difficulty]:checked").val() == "easy") {
             $('#Easy').prop("selected", true);
-            alert($('#Easy').is(':selected'));
+            alert($('#Easy').attr("selected"));
         }
         else if ( $("input[name=difficulty]:checked").val() == "medium") {
             $('#Medium').prop("selected", true);
-            alert($('#Medium').is(':selected'));
+            alert($('#Medium').attr("selected"));
         }
         else if ( $("input[name=difficulty]:checked").val() == "hard") {
             $('#Hard').prop("selected", true);
-            alert($('#Hard').is(':selected'));
+            alert($('#Hard').attr("selected"));
         }
         $("#lightbox").css("display", "none");
     }

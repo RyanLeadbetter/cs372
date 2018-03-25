@@ -35,11 +35,11 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <div hidden id="move-history" class="move-history">
     </div>
 </div>
-<div id="lightbox" class="modal" id="myModal" role="dialog" style="display: block; padding-top: 15%; box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
+<div id="lightbox" class="modal" id="myModal" role="dialog" style="display: block; padding-top: 15%;">
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content" id="messageHeader">
+      <div class="modal-content" id="messageHeader" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
         <div class="modal-header">
           <h4 class="modal-title">Select a difficulty:</h4>
         </div>

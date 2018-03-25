@@ -17,8 +17,8 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     function selectDifficulty() {
         alert("Yay you did it");
         alert($('#Medium').is(':selected'));
-        alert($("input[name=difficulty]:checked"));
-        $("myModal").style("display", "none");
+        alert($("input[name=difficulty]:checked").val());
+        $("myModal").css("display", "none");
     }
 </script>
 <div class="container-fluid chessheader">

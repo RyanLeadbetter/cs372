@@ -82,7 +82,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
       <div class="modal-content" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
         <div class="modal-header">
           <h4 id="messageHeader" class="modal-title">Select a difficulty:</h4>
-	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <button id="close" onclick="cancel()" type="button" class="close" data-dismiss="modal" style="display: none;">&times;</button>
         </div>
         <div id="messageBody" class="modal-body">
           <input id="radio1" type="radio" name="difficulty" value="easy"> Easy<br>
@@ -120,7 +120,13 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     	$("#messageBody").empty();
     	$("#messageBody").append("<p>This match will be recorded as a loss</p>");
     	$("#button1").text("Return to main menu");
+	$("#close").css("display", "block");
 	result = "lose";
+    }
+
+    function cancel() {
+	$("#lightbox").css("display", "none");
+	$("#close").css("display", "none");
     }
 </script>
 </body>

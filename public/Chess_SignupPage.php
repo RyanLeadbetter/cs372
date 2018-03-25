@@ -21,7 +21,7 @@ session_start();
                 </div>
             </div>
             <br>
-<a class='btn' type="button" href='http://localhost/Chess_LoginPage.php'> Return</a>
+<a class='btn' type="button" href="Chess_LoginPage.php"> Return</a>
 <h2 class="text-center">Create your account</h2>
 
 <?php

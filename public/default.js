@@ -167,13 +167,18 @@
       };  
       
    var onLoss = function(source, piece, position, orientation){
-        if (game.game_over() === true)
+        if (game.game_over() === true){
+            alert("You Lose");
+            /*
             if (game.turn() === playerColor[0]){
             alert("You Lose");
             }
         else{
             alert("You Win");
         }
+        }
+        */
+   }
    }
    
       var onDrop = function(source, target) {

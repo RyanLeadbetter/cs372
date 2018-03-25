@@ -189,7 +189,9 @@ var onDragStart = function (source, piece, position, orientation) {
 var displayMessage = function (message) {
     $("#lightbox").css("display", "block");
     $("#messageHeader").text(message);
-    //$("#message").css("display", "block");
+    $("#messageBody").empty();
+    $("#messageBody").append("<p>Your statistics have been updated</p>");
+    $("#button1").text("Return to main menu");
 };
 
 var makeBestMove = function () {

@@ -27,6 +27,7 @@ session_start();
 <?php
 if (isset($_POST["Login"]))
 {
+	echo "Hello world";
     $conn = sqlsrv_connect("chess372", "chess372", "Project372", "chess_game");
 	
 	if (!$conn) {

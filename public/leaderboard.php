@@ -26,6 +26,9 @@
 	
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_connect_error());
+	}else{
+	
+	echo "Im inside"
 	}
     
     $sql = "SELECT * FROM user_information ORDER BY pvpWins DESC LIMIT 10";

@@ -78,7 +78,6 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
      <label id="pswd_msg" class="err_msg"></label>
     <input  type="password" placeholder="Enter Password" size="30" name="pwd">
      <input type="submit" name="Login" value="Login"/>
-     <a class="dropdown-item" href="#">Forgot password?</a>
      <a class="dropdown-item" href="Chess_SignupPage.php">New around here? Sign up</a>
   </div>
 </form>

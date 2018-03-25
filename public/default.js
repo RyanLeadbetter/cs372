@@ -167,12 +167,12 @@
       };  
       
    var onLoss = function(source, piece, position, orientation){
-        if (game.in_checkmate())
+        if (game.game_over() === true)
             if (game.turn() === playerColor[0]){
-            alert("You Lose")
+            alert("You Lose");
             }
         else{
-            alert("You Win")
+            alert("You Win");
         }
    }
    

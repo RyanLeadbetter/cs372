@@ -13,40 +13,38 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+<div class="container-fluid chessheader">
+        <div class="container text-center" style="background:none;">
+            <br>
+            <h1 class="tittle">The <br>Chess Game</h1>
+            <!--<button class="btn btn-default">About</button>-->
+        </div>
+</div>
+
+<br>
 <div id="board" class="board"></div>
 <div class="info">
-    Search depth:
-    <select id="search-depth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+
+    <select hidden id="search-depth">
+        <option value="1" id="Easy">1</option>
+        <option value="2" id="Medium" selected>2</option>
+        <option value="3" id="Hard">3</option>
     </select>
 
     <br>
-    <span>Positions evaluated: <span id="position-count"></span></span>
-    <br>
-    <span>Time: <span id="time"></span></span>
-    <br>
-    <span>Positions/s: <span id="positions-per-s"></span> </span>
-    <br>
-    <br>
-    <div id="move-history" class="move-history">
+    <div hidden id="move-history" class="move-history">
     </div>
 </div>
-<div id="lightbox", class="modal" style='display:none; position:fixed; padding-top: 100px; left: 25%; top: 25%; width: 50%; height: 25%; background-color: white; box-shadow:0 0 0 1600px rgba(0,0,0,0.55);'>
+<div id="lightbox", class="modal" style='display:block; position:fixed; padding-top: 100px; left: 25%; top: 25%; width: 50%; height: 25%; background-color: white; box-shadow:0 0 0 1600px rgba(0,0,0,0.55);'>
     <div class="modal-content" style='width: 50%; margin: 0 auto;'>
         <h1 style="font-size: 12pt; display:none;" id="message"></h1>
-        <a class="btn" type="button" href="Welcome.php">Ok</a>
+        <a class="btn" type="button" href="http://localhost/Welcome.php">Ok</a>
     </div>
 </div>
 <script src="lib/jquery/jquery-3.2.1.min.js"></script>
 <script src="lib/chessboardjs/js/chess.js"></script>
 <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
-<script src="script.js"></script>
-<script>
+<script src="ai.js"></script>
 
-</script>
 </body>
 </html>

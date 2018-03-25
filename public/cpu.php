@@ -17,7 +17,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     function selectDifficulty() {
         alert("Yay you did it");
         alert($('#Medium').is(':selected'));
-        alert($('#radio1').prop());
+        alert($('#radio1').prop("checked"));
         $("myModal").style("display", "none");
     }
 </script>

@@ -32,6 +32,11 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     $sql = "SELECT * FROM user_information ORDER BY pvpWins DESC LIMIT 10";
     $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
+	
+	$result = sqlsrv_query( $conn, $sql, $params);
+	if( $stmt === false ) {
+	     die( print_r( sqlsrv_errors(), true));
+	}
     
     echo "<h2 class='text-center'> PvP Rankings </h2>";
     echo "<table class='table table-bordered table-hover text-center'>
@@ -59,6 +64,11 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     $sql = "SELECT * FROM user_information ORDER BY aiWins DESC LIMIT 10";
     $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
+	
+	$result = sqlsrv_query( $conn, $sql, $params);
+	if( $stmt === false ) {
+	     die( print_r( sqlsrv_errors(), true));
+	}
     
     echo "</br><h2 class='text-center'> Single Player Rankings </h2>";
     echo "<table class='table table-bordered table-hover text-center'>

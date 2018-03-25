@@ -18,17 +18,18 @@
                 </div>
             </div>
             <br>
-  <a class='btn' type="button" href='http://localhost/Welcome.html'> Return</a>
+  <a class='btn' type="button" href='Welcome.html'> Return</a>
     
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "chess_game");
+    $connectioninfo=array("Database"=>"chess_game","UID"=>"chess372","PWD"=>"Project372");
+    $conn = sqlsrv_connect("chess372",$connectioninfo);
 	
 	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		die("Connection failed: " . sqlsrv_connect_error());
 	}
     
     $sql = "SELECT * FROM user_information ORDER BY pvpWins DESC LIMIT 10";
-    $result = mysqli_query($conn, $sql);
+    $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
     
     echo "<h2 class='text-center'> PvP Rankings </h2>";
@@ -41,7 +42,7 @@
         <th>Draws</th>
         <th>Games Played</th>
         </tr>";
-    while($row = mysqli_fetch_assoc($result)) {
+    while($row = sqlsrv_fetch_assoc($result)) {
         $ranking++;
         echo "<tr>";
         echo "<td class='text-center'>" . $ranking . "</td>";
@@ -55,7 +56,7 @@
     echo '</table>';
     
     $sql = "SELECT * FROM user_information ORDER BY aiWins DESC LIMIT 10";
-    $result = mysqli_query($conn, $sql);
+    $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
     
     echo "</br><h2 class='text-center'> Single Player Rankings </h2>";
@@ -68,7 +69,7 @@
         <th>Draws</th>
         <th>Games Played</th>
         </tr>";
-    while($row = mysqli_fetch_assoc($result)) {
+    while($row = sqlsrv_fetch_assoc($result)) {
         $ranking++;
         echo "<tr>";
         echo "<td class='text-center'>" . $ranking . "</td>";

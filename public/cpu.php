@@ -35,6 +35,43 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
         </div>
 </div>
 
+<?php
+if (isset($_POST["result"]))
+{
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:chess372.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+	
+	if (!$conn) {
+		die("Connection failed: " . sqlsrv_errors());
+	}
+	
+    if  ($_POST["result"] == "win")
+    {
+        $sql = "UPDATE user_information SET aiWins=aiWins + 1, aiGamesPlayed=aiGamesPlayed + 1 WHERE email='$_SESSION[email]'";
+    }
+    else if ($_POST["result"] == "draw") {
+        $sql = "UPDATE user_information SET aiDraws=aiDraws + 1, aiGamesPlayed=aiGamesPlayed + 1 WHERE email='$_SESSION[email]'";
+    }
+    else if ($_POST["result"] == "lose") {
+        $sql = "UPDATE user_information SET aiGamesPlayed=aiGamesPlayed + 1 WHERE email='$_SESSION[email]'";
+    }
+    else {
+        echo "An error has occurred in retrieving the result";
+    }
+    
+    if (sqlsrv_query($conn, $sql)) {
+	   header("Location: Welcome.php");
+	} 
+    else { 
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
+	}
+	
+	sqlsrv_close($conn);
+}
+?>
+    
 <br>
 <div id="board" class="board"></div>
 <div class="info">

@@ -36,8 +36,8 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     </div>
 </div>
 <div id="lightbox", class="modal" style='display:block; position:fixed; padding-top: 100px; left: 25%; top: 25%; width: 50%; height: 25%; background-color: white; box-shadow:0 0 0 1600px rgba(0,0,0,0.55);'>
-    <p class="text-center" style="font-size: 12pt; display:block;" id="message">Select a difficulty: </p>
-    <a class="btn text-center" type="button" href="Welcome.php">Ok</a>
+    <p style="padding-left: 5%; font-size: 12pt; display:block;" id="message">Select a difficulty: </p>
+    <a style="padding-left: 50%" class="btn" type="button" href="Welcome.php">Ok</a>
 </div>
 <script src="lib/jquery/jquery-3.2.1.min.js"></script>
 <script src="lib/chessboardjs/js/chess.js"></script>

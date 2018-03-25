@@ -26,6 +26,10 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
         }
         $("#lightbox").css("display", "none");
     }
+
+    function promptUserLeave() {
+	    alert("this works");
+    }
 </script>
 <div class="container-fluid chessheader">
         <div class="container text-center" style="background:none;">
@@ -85,6 +89,9 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     <br>
     <div hidden id="move-history" class="move-history">
     </div>
+</div>
+<div>
+	<button id="forfeit" onclick="promptUserLeave()" type="button" class="btn btn-block">Forfeit and Return to Main Menu</button>
 </div>
 <div id="lightbox" class="modal" id="myModal" role="dialog" style="display: block; padding-top: 15%;">
     <div class="modal-dialog">

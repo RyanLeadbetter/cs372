@@ -186,23 +186,40 @@ var onDragStart = function (source, piece, position, orientation) {
     }
 };
 
+var displayMessage = function (message) {
+    $("#lightbox").css("display", "block");
+    $("#messageHeader").text(message);
+    //$("#message").css("display", "block");
+};
+
 var makeBestMove = function () {
     var bestMove = getBestMove(game);
     game.ugly_move(bestMove);
     board.position(game.fen());
     renderMoveHistory(game.history());
-    if (game.game_over()) {
-        alert('Game over');
+    if (game.game_over() && game.in_checkmate) {
+        displayMessage("Checkmate! You lose");
+    }
+    else if (game.game_over() && game.in_draw()) {
+        displayMessage('Draw!');
+    }
+    else if (game.game_over() && game.in_stalemate()) {
+        displayMessage('Stalemate! It\'s a draw');
     }
 };
 
 
 var positionCount;
 var getBestMove = function (game) {
-    if (game.game_over()) {
-        alert('Game over');
+    if (game.game_over() && game.in_checkmate) {
+        displayMessage("Checkmate! You win");
     }
-
+    else if (game.game_over() && game.in_draw()) {
+        displayMessage('Draw!');
+    }
+    else if (game.game_over() && game.in_stalemate()) {
+        displayMessage('Stalemate! It\'s a draw');
+    }
     positionCount = 0;
     var depth = parseInt($('#search-depth').find(':selected').text());
 

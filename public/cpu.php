@@ -53,11 +53,11 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content" id="messageHeader" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
+      <div class="modal-content" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
         <div class="modal-header">
-          <h4 class="modal-title">Select a difficulty:</h4>
+          <h4 id="messageHeader" class="modal-title">Select a difficulty:</h4>
         </div>
-        <div class="modal-body">
+        <div id="messageBody" class="modal-body">
           <input id="radio1" type="radio" name="difficulty" value="easy"> Easy<br>
           <input id="radio2" type="radio" name="difficulty" value="medium"> Medium<br>
           <input id="radio3" type="radio" name="difficulty" value="hard"> Hard

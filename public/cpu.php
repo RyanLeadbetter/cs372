@@ -15,10 +15,14 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 <body>
 <script>
     function selectDifficulty() {
-        alert("Yay you did it");
         alert($('#Medium').is(':selected'));
-        alert($("input[name=difficulty]:checked").val());
-        $("myModal").css("display", "none");
+        if ( $("input[name=difficulty]:checked").val()) == "easy")
+            $('#Easy').prop("selected", true);
+        else if ( $("input[name=difficulty]:checked").val()) == "medium")
+            $('#Medium').prop("selected", true);
+        else if ( $("input[name=difficulty]:checked").val()) == "hard")
+            $('#Hard').prop("selected", true);
+        $("lightbox").css("display", "none");
     }
 </script>
 <div class="container-fluid chessheader">

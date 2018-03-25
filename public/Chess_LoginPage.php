@@ -88,7 +88,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 </form>
     
 <script>
-document.getElementById("LogIn").addEventListener("submit", LogInForm, false);
+document.getElementById("Login").addEventListener("submit", LogInForm, false);
 window.onload=document.getElementById("name").value= "";
 </script>
 </body>

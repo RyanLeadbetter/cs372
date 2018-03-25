@@ -21,14 +21,12 @@
   <a class='btn' type="button" href='Welcome.html'> Return</a>
     
 <?php
-    $connectioninfo=array("Database"=>"chess_game","UID"=>"chess372","PWD"=>"Project372");
-    $conn = sqlsrv_connect("chess372",$connectioninfo);
+$connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:chess372.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 	
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_connect_error());
-	}else{
-	
-	echo "Im inside"
 	}
     
     $sql = "SELECT * FROM user_information ORDER BY pvpWins DESC LIMIT 10";

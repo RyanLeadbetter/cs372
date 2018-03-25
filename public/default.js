@@ -162,11 +162,9 @@
             (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
             (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
             (game.turn() !== playerColor[0])) {
-          return false;
-            if (game.game_over() === true){
             alert("You Lose");
+            return false;
             }
-        }
       };  
    /* 
    var onLoss = function(source, piece, position, orientation){

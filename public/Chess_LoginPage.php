@@ -64,7 +64,7 @@ if (isset($_POST["Login"]))
 }
 ?>
     
-<form id="LogIn" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+<form id="Login" style="width:500px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
   <div class="container">
     <label><b>Email</b></label>
     <label id="uname_msg" class="err_msg"></label>

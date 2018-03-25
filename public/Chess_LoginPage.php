@@ -39,10 +39,11 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 
     if (trim($_POST["email"]) != "" && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))
     {
-	echo "The posts work";
         $sql = "SELECT * FROM user_information WHERE email='$_POST[email]'";
 	 $result = sqlsrv_query($conn, $sql);
+	    echo "The query works";
 	 $pass = sqlsrv_fetch_assoc($result);
+	    echo "The fetch works";
         if ($pass['password'] != NULL && $pass['password'] == $_POST["pwd"])
         {
 	     echo "and it gets this far";

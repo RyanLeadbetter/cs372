@@ -37,7 +37,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 		die("Connection failed: " . sqlsrv_errors());
 	}
 	else{
-		echo hello;
+		echo "hello";
 	}
 /*
     if (trim($_POST["email"]) != "" && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))

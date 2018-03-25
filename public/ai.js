@@ -198,7 +198,6 @@ var displayMessage = function (message) {
 
 $('#button1').click(function() {
     if ( result == "") {
-        alert ("returns without executing");
         return;
     }
      $.ajax({
@@ -206,7 +205,6 @@ $('#button1').click(function() {
      url: "cpu.php",
     data: { 'result': result }
     }).done(function( msg ) {
-     alert( "Data Saved: " + msg );
     });    
 });
 

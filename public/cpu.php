@@ -16,15 +16,15 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 <script>
     function selectDifficulty() {
         if ( $("input[name=difficulty]:checked").val() == "easy") {
-            $('#Easy').prop("selected", true);
+            $('#Easy').attr("selected", "selected"));
             alert($('#Easy').attr("selected"));
         }
         else if ( $("input[name=difficulty]:checked").val() == "medium") {
-            $('#Medium').prop("selected", true);
+            $('#Medium').attr("selected", "selected"));
             alert($('#Medium').attr("selected"));
         }
         else if ( $("input[name=difficulty]:checked").val() == "hard") {
-            $('#Hard').prop("selected", true);
+            $('#Hard').attr("selected", "selected"));
             alert($('#Hard').attr("selected"));
         }
         $("#lightbox").css("display", "none");
@@ -44,7 +44,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 
     <select hidden id="search-depth">
         <option value="1" id="Easy">1</option>
-        <option value="2" id="Medium" selected>2</option>
+        <option value="2" id="Medium">2</option>
         <option value="3" id="Hard">3</option>
     </select>
 

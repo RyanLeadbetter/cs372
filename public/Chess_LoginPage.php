@@ -44,7 +44,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	 $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
         if ($pass['password'] != NULL && $pass['password'] == $_POST["pwd"])
         {
-	     $user = $_POST['email'];
+	     $email = $_POST['email'];
 	     $_SESSION['email'] = $email;
 	     header("Location: Welcome.html");
         }

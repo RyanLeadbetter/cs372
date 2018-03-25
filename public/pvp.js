@@ -1,4 +1,4 @@
-var board,
+var page-game,
   game = new Chess();
 
 var removeGreySquares = function() {

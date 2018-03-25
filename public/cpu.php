@@ -80,8 +80,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
       <!-- Modal content-->
       <div class="modal-content" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
-	<button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" style="float: left";>&times;</button>
           <h4 id="messageHeader" class="modal-title">Select a difficulty:</h4>
         </div>
         <div id="messageBody" class="modal-body">

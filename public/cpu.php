@@ -13,24 +13,6 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<script>
-    function selectDifficulty() {
-        if ( $("input[name=difficulty]:checked").val() == "easy") {
-            $('#Easy').attr("selected", true);
-        }
-        else if ( $("input[name=difficulty]:checked").val() == "medium") {
-            $('#Medium').attr("selected", true);
-        }
-        else if ( $("input[name=difficulty]:checked").val() == "hard") {
-            $('#Hard').attr("selected", true);
-        }
-        $("#lightbox").css("display", "none");
-    }
-
-    function promptUserLeave() {
-	    alert("this works");
-    }
-</script>
 <div class="container-fluid chessheader">
         <div class="container text-center" style="background:none;">
             <br>
@@ -117,6 +99,29 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 <script src="lib/chessboardjs/js/chess.js"></script>
 <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
 <script src="ai.js"></script>
+<script>
+    function selectDifficulty() {
+        if ( $("input[name=difficulty]:checked").val() == "easy") {
+            $('#Easy').attr("selected", true);
+        }
+        else if ( $("input[name=difficulty]:checked").val() == "medium") {
+            $('#Medium').attr("selected", true);
+        }
+        else if ( $("input[name=difficulty]:checked").val() == "hard") {
+            $('#Hard').attr("selected", true);
+        }
+        $("#lightbox").css("display", "none");
+    }
 
+    function promptUserLeave() {
+	$("#lightbox").css("display", "block");
+    	$("#messageHeader").text("Forfeit?");
+    	$("#messageBody").empty();
+    	$("#messageBody").append("<p>This match will be recorded as a loss</p>");
+    	$("#button1").text("Return to main menu");
+	result = "lose";
+	alert(result);
+    }
+</script>
 </body>
 </html>

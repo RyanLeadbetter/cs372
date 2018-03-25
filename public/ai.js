@@ -198,7 +198,7 @@ var displayMessage = function (message) {
 
 $('#button1').click(function() {
     if ( result == "") {
-        alert ("returns without executing);
+        alert ("returns without executing");
         return;
     }
      $.ajax({

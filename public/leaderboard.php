@@ -62,10 +62,10 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     }  
     echo '</table>';
 	
-    if (mysqli_query($conn, $sql)) {
+    if (sqlsrv_query($conn, $sql)) {
 	} 
     else { 
-		echo "Error: " . $sql . " " . mysqli_error($conn);
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
 	}
     
     $sql = "SELECT TOP 10 * FROM user_information ORDER BY aiWins DESC";

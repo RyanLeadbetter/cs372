@@ -29,7 +29,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 		die("Connection failed: " . sqlsrv_connect_error());
 	}
     
-    $sql = "SELECT * FROM user_information ORDER BY pvpWins DESC";
+    $sql = "SELECT LIMIT 10 * FROM user_information ORDER BY pvpWins DESC";
     $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
 	
@@ -69,7 +69,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 		echo "Error: " . $sql . " " . mysqli_error($conn);
 	}
     
-    $sql = "SELECT * FROM user_information ORDER BY aiWins DESC";
+    $sql = "SELECT LIMIT 10 * FROM user_information ORDER BY aiWins DESC";
     $result = sqlsrv_query($conn, $sql);
     $ranking = 0;
 	

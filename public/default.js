@@ -166,8 +166,15 @@
         }
       };  
       
-    
-      
+  /*  var onLoss = function(source, piece, position, orientation){
+        if (game.in_checkmate())
+            if (game.turn() === playerColor[0]){
+            
+            }
+        else{
+            
+        }
+    */ 
       var onDrop = function(source, target) {
         // see if the move is legal
         var move = game.move({

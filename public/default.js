@@ -148,8 +148,7 @@
             position: serverGame.board ? serverGame.board : 'start',
             onDragStart: onDragStart,
             onDrop: onDrop,
-            onSnapEnd: onSnapEnd,
-            onLoss: onLoss
+            onSnapEnd: onSnapEnd
           };
                
           game = serverGame.board ? new Chess(serverGame.board) : new Chess();

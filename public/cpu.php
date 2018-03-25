@@ -37,7 +37,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
 </div>
 <div id="lightbox", class="modal" style='display:block; position:fixed; padding-top: 100px; left: 25%; top: 25%; width: 50%; height: 25%; background-color: white; box-shadow:0 0 0 1600px rgba(0,0,0,0.55);'>
     <div class="modal-content" style='width: 50%; margin: 0 auto;'>
-        <p style="font-size: 12pt; display:block;" id="message"></p>
+        <p style="font-size: 12pt; display:block;" id="message">Select a difficulty: </p>
         <a class="btn" type="button" href="Welcome.php">Ok</a>
     </div>
 </div>

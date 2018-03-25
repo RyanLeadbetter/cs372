@@ -13,6 +13,14 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+<script>
+    function selectDifficulty() {
+        alert("Yay you did it");
+        alert($('#Medium').selected());
+        alert($('#radio1').prop());
+        $("myModal").style("display", "none");
+    }
+</script>
 <div class="container-fluid chessheader">
         <div class="container text-center" style="background:none;">
             <br>
@@ -44,12 +52,12 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
           <h4 class="modal-title">Select a difficulty:</h4>
         </div>
         <div class="modal-body">
-          <input type="radio" name="gender" value="male"> Easy<br>
-          <input type="radio" name="gender" value="female"> Medium<br>
-          <input type="radio" name="gender" value="other"> Hard
+          <input id="radio1" type="radio" name="gender" value="male"> Easy<br>
+          <input id="radio2" type="radio" name="gender" value="female"> Medium<br>
+          <input id="radio3" type="radio" name="gender" value="other"> Hard
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
+          <button onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
         </div>
       </div>
       

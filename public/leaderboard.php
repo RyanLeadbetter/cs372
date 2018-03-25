@@ -37,6 +37,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	if( $stmt === false ) {
 	     die( print_r( sqlsrv_errors(), true));
 	}
+	echo "test 1";
 	echo $result;
     
     echo "<h2 class='text-center'> PvP Rankings </h2>";
@@ -70,6 +71,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	if( $stmt === false ) {
 	     die( print_r( sqlsrv_errors(), true));
 	}
+	echo "test 1";
+	echo $result;
     
     echo "</br><h2 class='text-center'> Single Player Rankings </h2>";
     echo "<table class='table table-bordered table-hover text-center'>

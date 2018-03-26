@@ -50,7 +50,7 @@
         
         $('#page-lobby').hide();
         $('#page-game').show();
-        
+        $('#returnButton').hide();
       });
         
       socket.on('move', function (msg) {

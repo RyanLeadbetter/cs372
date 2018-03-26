@@ -71,7 +71,21 @@ if (isset($_SESSION['email'])) {
       <div id='game-board' style="width: 400px">
       </div>
     </div>
-
+<div id="lightbox" class="modal" id="myModal" role="dialog" style="display: none; padding-top: 15%;">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="box-shadow:0 0 0 1600px rgba(0,0,0,0.55);">
+        <div class="modal-header">
+          <h4 id="messageHeader" class="modal-title">Select a difficulty:</h4>
+	  <button id="close" onclick="cancel()" type="button" class="close" data-dismiss="modal" style="display: none;">&times;</button>
+        </div>
+        <div id="messageBody" class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button id="button1" onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
     <script src="lib/socket.io-1.2.0.js"></script>
     <script src="lib/jquery-1.11.1.js"></script>
     <script src="lib/WinJS.4.0/js/WinJS.min.js"></script>

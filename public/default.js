@@ -55,6 +55,7 @@
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
+            alert("does this execute every move or just your own?");
            game.move(msg.move);
            board.position(game.fen());
         }

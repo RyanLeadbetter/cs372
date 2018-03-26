@@ -1,3 +1,8 @@
+<?php 
+session_start();     
+if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
+    header("Location: Chess_LoginPage.php");
+}
 <!doctype html>
 <html>
   <head>
@@ -18,9 +23,32 @@
             <!--<button class="btn btn-default">About</button>-->
         </div>
     </div>
+  <?php
+if (isset($_SESSION['email'])) {
+    $connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:chess372.database.windows.net,1433";
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+	
+	if (!$conn) {
+		die("Connection failed: " . sqlsrv_errors());
+	}
+    $sql = "SELECT * FROM user_information WHERE email='$_SESSION[email]'";
+    $result = sqlsrv_query($conn, $sql);
+    $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+    $name = $pass['firstName'];
+    
+    if (sqlsrv_query($conn, $sql)) {
+	} 
+    else { 
+		echo "Error: " . $sql . " " . sqlsrv_error($conn);
+	}
+	
+	sqlsrv_close($conn);
+}
+?>
     <div class="page login" id='page-login'>
       <!--<div class='logo'></div>-->
-      <input id='username'></input>
+      <input id='username' value="<?php echo $name; ?>" ></input>
       <button id='login'>Find opponent</button>
     </div>
     <div class="page lobby" id='page-lobby'>

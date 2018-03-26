@@ -55,9 +55,20 @@
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
-            alert("does this execute every move or just your own?");
            game.move(msg.move);
            board.position(game.fen());
+           if (game.game_over() && game.in_checkmate) {
+                result = "lose";
+                displayMessage("Checkmate! You lose");
+            }
+           else if (game.game_over() && game.in_draw()) {
+                result = "draw";
+                displayMessage('Draw!');
+            }
+           else if (game.game_over() && game.in_stalemate()) {
+                result = "draw";
+                displayMessage('Stalemate! It\'s a draw');
+            }
         }
       });
      
@@ -214,10 +225,9 @@
           return 'snapback';
         } else {
            socket.emit('move', {move: move, gameId: serverGame.id, board: game.fen()});
-           alert("Move recognized");
            if (game.game_over() && game.in_checkmate) {
-                result = "lose";
-                displayMessage("Checkmate! Who lost?");
+                result = "win";
+                displayMessage("Checkmate! You win");
             }
              else if (game.game_over() && game.in_draw()) {
                 result = "draw";
@@ -227,8 +237,6 @@
                 result = "draw";
                 displayMessage('Stalemate! It\'s a draw');
             }
-            else if (game.game_over())
-                alert("Game over recognized");
         }
       
       };

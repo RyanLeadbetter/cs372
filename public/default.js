@@ -121,6 +121,9 @@
                           socket.emit('resumegame',  game);
                         }));
         });
+        if (document.getElementById('gamesList').innerHTML == '') {
+            document.getElementById('gamesList').innerHTML = 'No active games';
+        }
       };
       
       var updateUserList = function() {
@@ -132,6 +135,9 @@
                           socket.emit('invite',  user);
                         }));
         });
+        if (document.getElementById('userList').innerHTML == '') {
+            document.getElementById('userList').innerHTML = 'No users online';
+        }
       };
            
       //////////////////////////////

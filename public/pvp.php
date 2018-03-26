@@ -48,7 +48,7 @@ if (isset($_SESSION['email'])) {
 ?>
     <div class="page login" id='page-login'>
       <!--<div class='logo'></div>-->
-      <input id='username' value="<?php echo $name; ?>" ></input>
+      <input id='username' value="" ></input>
       <button id='login'>Find opponent</button>
     </div>
     <div class="page lobby" id='page-lobby'>

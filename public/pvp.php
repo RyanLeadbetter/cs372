@@ -24,7 +24,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
             <!--<button class="btn btn-default">About</button>-->
         </div>
     </div>
-<a class='btn' type="button" href='Welcome.php' style="float: left;" > Return</a>
+<a class='btn mr-auto' type="button" href='Welcome.php' style=";" > Return</a>
   <?php
 if (isset($_SESSION['email'])) {
     $connectionInfo = array("UID" => "chess372@chess372", "pwd" => "Project372", "Database" => "chess_game", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);

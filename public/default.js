@@ -158,7 +158,7 @@
       // do not pick up pieces if the game is over
       // only pick up pieces for the side to move
       var onDragStart = function(source, piece, position, orientation) {
-        if (game.game_over() === true ||
+        if (game.game_over() === true &&
             (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
             (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
             (game.turn() !== playerColor[0])) {

@@ -34,8 +34,7 @@ if (isset($_SESSION['email'])) {
 	if (!$conn) {
 		die("Connection failed: " . sqlsrv_errors());
 	}
-    //$sql = "SELECT * FROM user_information WHERE email='$_SESSION[email]'";
-    $sql = "DELETE FROM user_information where lastName='Bone'";
+    $sql = "SELECT * FROM user_information WHERE email='$_SESSION[email]'";
     $result = sqlsrv_query($conn, $sql);
     $pass = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
     $name = $pass['firstName'];

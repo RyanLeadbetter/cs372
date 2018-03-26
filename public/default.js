@@ -190,6 +190,15 @@
             return false;
             }
       };  
+        
+    var displayMessage = function (message) {
+        $("#lightbox").css("display", "block");
+        $("#messageHeader").text(message);
+        $("#messageBody").empty();
+        $("#messageBody").append("<p>Your statistics have been updated</p>");
+        $("#button1").text("Return to main menu");
+    };
+        
       var onDrop = function(source, target) {
           removeGreySquares();
           
@@ -205,6 +214,18 @@
           return 'snapback';
         } else {
            socket.emit('move', {move: move, gameId: serverGame.id, board: game.fen()});
+           if (game.game_over() && game.in_checkmate) {
+                result = "lose";
+                displayMessage("Checkmate! Who lost?");
+            }
+             else if (game.game_over() && game.in_draw()) {
+                result = "draw";
+                displayMessage('Draw!');
+            }
+            else if (game.game_over() && game.in_stalemate()) {
+                result = "draw";
+                displayMessage('Stalemate! It\'s a draw');
+            }
         }
       
       };

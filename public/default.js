@@ -148,6 +148,8 @@
             position: serverGame.board ? serverGame.board : 'start',
             onDragStart: onDragStart,
             onDrop: onDrop,
+            onMouseoutSquare: onMouseoutSquare,
+            onMouseoverSquare: onMouseoverSquare,
             onSnapEnd: onSnapEnd
           };
                
@@ -155,6 +157,22 @@
           board = new ChessBoard('game-board', cfg);
       }
        
+      
+    var removeGreySquares = function() {
+     $('#game-board .square-55d63').css('background', '');
+    };
+
+    var greySquare = function(square) {
+    var squareEl = $('#game-board .square-' + square);
+  
+    var background = '#a9a9a9';
+    if (squareEl.hasClass('black-3c85d') === true) {
+    background = '#696969';
+    }
+
+    squareEl.css('background', background);
+    };
+      
       // do not pick up pieces if the game is over
       // only pick up pieces for the side to move
       var onDragStart = function(source, piece, position, orientation) {
@@ -167,6 +185,8 @@
             }
       };  
       var onDrop = function(source, target) {
+          removeGreySquares();
+          
         // see if the move is legal
         var move = game.move({
           from: source,
@@ -183,6 +203,30 @@
       
       };
       
+      
+var onMouseoverSquare = function(square, piece) {
+  // get list of possible moves for this square
+  var moves = game.moves({
+    square: square,
+    verbose: true
+  });
+
+  // exit if there are no moves available for this square
+  if (moves.length === 0) return;
+
+  // highlight the square they moused over
+  greySquare(square);
+
+  // highlight the possible squares for this piece
+  for (var i = 0; i < moves.length; i++) {
+    greySquare(moves[i].to);
+  }
+};
+        
+   var onMouseoutSquare = function(square, piece) {
+  removeGreySquares();
+};
+        
       // update the board position after the piece snap 
       // for castling, en passant, pawn promotion
       var onSnapEnd = function() {

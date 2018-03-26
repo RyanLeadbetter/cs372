@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     header("Location: Chess_LoginPage.php");
 }
+?>
 <!doctype html>
 <html>
   <head>
@@ -48,7 +49,7 @@ if (isset($_SESSION['email'])) {
 ?>
     <div class="page login" id='page-login'>
       <!--<div class='logo'></div>-->
-      <input id='username' value="" ></input>
+      <input id='username' value="<?php echo $name; ?>" ></input>
       <button id='login'>Find opponent</button>
     </div>
     <div class="page lobby" id='page-lobby'>

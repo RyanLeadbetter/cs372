@@ -186,7 +186,6 @@
             (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
             (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
             (game.turn() !== playerColor[0])) {
-            //alert("You Win!!!");
             return false;
             }
       };  
@@ -214,6 +213,7 @@
           return 'snapback';
         } else {
            socket.emit('move', {move: move, gameId: serverGame.id, board: game.fen()});
+           alert("Move recognized");
            if (game.game_over() && game.in_checkmate) {
                 result = "lose";
                 displayMessage("Checkmate! Who lost?");
@@ -226,6 +226,8 @@
                 result = "draw";
                 displayMessage('Stalemate! It\'s a draw');
             }
+            else if (game.game_over())
+                alert("Game over recognized");
         }
       
       };

@@ -49,7 +49,7 @@ if (isset($_SESSION['email'])) {
 ?>
     <div class="page login" id='page-login'>
       <!--<div class='logo'></div>-->
-      <input id='username' value="<?php echo $name; ?>" style="color: #ccc;" readonly></input>
+      <input id='username' value="<?php echo $name; ?>" style="background-color: #ccc;" readonly></input>
       <button id='login'>Find opponent</button>
     </div>
     <div class="page lobby" id='page-lobby'>

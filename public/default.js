@@ -44,10 +44,14 @@
       });
                   
       socket.on('joingame', function(msg) {
-        displayUpdate("You are being challenged!", "Would you like to accept?", true);
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
-        alert(playerColor);
+        if (msg.color == "black") {
+            displayUpdate("You are being challenged!", "Would you like to accept?", true);
+        }
+        else {
+            displayUpdate("Challenge sent", "Response pending...", false);
+        }
         initGame(msg.game);
         
         $('#page-lobby').hide();
@@ -226,7 +230,7 @@
             $("#button2").css("margin-top", "0px");
         }
         else
-            $("#button1").text("Return to lobby");
+            $("#button1").text("Cancel");
     }
         
     $('#button1').click(function() {

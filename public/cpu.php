@@ -18,6 +18,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
             <br>
             <h1 class="tittle">The <br>Chess Game</h1>
             <button class="btn btn-default" onclick="window.open('https://en.wikipedia.org/wiki/Rules_of_chess');" target="_blank">Don't know what to do? See the rules</button>
+	    <br>	
         </div>
 </div>
 

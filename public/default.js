@@ -222,6 +222,7 @@
             $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
             $("#button1").text("Yes");
             $("#button2").text("No");
+            $("#button2").css("margin-top", "0px");
         }
         else
             $("#button1").text("Return to lobby");

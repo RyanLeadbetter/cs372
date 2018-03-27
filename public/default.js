@@ -44,7 +44,8 @@
       });
                   
       socket.on('joingame', function(msg) {
-        console.log("joined as game id: " + msg.game.id );   
+        displayUpdate("You are being challenged!", "Would you like to accept?", True);
+        console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
         initGame(msg.game);
         
@@ -209,6 +210,22 @@
         $("#messageBody").append("<p>Your statistics have been updated</p>");
         $("#button1").text("Return to lobby");
     };
+        
+    var displayUpdate = function (header, message, isYesNoButton) {
+        $("#lightbox").css("display", "block");
+        $("#messageHeader").text(header);
+        $("#messageBody").empty();
+        $("#messageBody").append("<p>" + message + "</p>");
+        if (isYesNoButton) {
+            //$("#button1").removeClass("btn-block");
+            $("#button1").addClass("btn-group");
+            $("#button1").clone().attr("id", "button2").appendTo("div.modal-header");
+            $("#button1").text("Yes");
+            $("#button2").text("No");
+        }
+        else
+            $("#button1").text("Return to lobby");
+    }
         
     $('#button1').click(function() {
     if ( result == "") {

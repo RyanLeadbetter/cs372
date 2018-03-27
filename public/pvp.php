@@ -92,7 +92,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
       <h1>Choose your opponent</h1>
       <h2 id='userLabel'></h2>
       <h3 style="display: none">Active games</h3>
-      <div id='gamesList'>
+      <div id='gamesList' style="display: none">
         No active games
       </div>
       <h3>Online players</h3>

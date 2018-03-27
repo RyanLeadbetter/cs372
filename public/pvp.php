@@ -91,7 +91,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     <div class="page lobby" id='page-lobby'>
       <h1>Choose your opponent</h1>
       <h2 id='userLabel'></h2>
-      <h3>Active games</h3>
+      <h3 style="display: none">Active games</h3>
       <div id='gamesList'>
         No active games
       </div>

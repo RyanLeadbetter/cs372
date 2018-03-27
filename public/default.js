@@ -207,8 +207,25 @@
         $("#messageHeader").text(message);
         $("#messageBody").empty();
         $("#messageBody").append("<p>Your statistics have been updated</p>");
-        $("#button1").text("Return to main menu");
+        $("#button1").text("Return to lobby");
     };
+        
+    $('#button1').click(function() {
+    if ( result == "") {
+        return;
+    }
+     $.ajax({
+     type: "POST",
+     url: "pvp.php",
+    data: { 'result': result }
+    }).done(function( msg ) {
+         socket.emit('resign', {userId: username, gameId: serverGame.id});
+        
+        socket.emit('login', username);
+        $('#page-game').hide();
+        $('#page-lobby').show();
+    });    
+    });
         
       var onDrop = function(source, target) {
           removeGreySquares();

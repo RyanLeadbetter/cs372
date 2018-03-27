@@ -44,7 +44,7 @@
       });
                   
       socket.on('joingame', function(msg) {
-        displayUpdate("You are being challenged!", "Would you like to accept?", True);
+        displayUpdate("You are being challenged!", "Would you like to accept?", true);
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
         initGame(msg.game);

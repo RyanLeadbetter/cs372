@@ -37,7 +37,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	}
 	
     echo "Why are you so mean";
-    if (trim($_POST["fname"]) != "" && trim($_POST["lname"]) != "" && trim($_POST["eml"]) != "" && preg_match("/\w+@\w+\.\w+/", $_POST["eml"], $matches) && trim($_POST["pwd"]) != "" && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches))
+    if (trim($_POST["fname"]) != "" && trim($_POST["lname"]) != "" && trim($_POST["eml"]) != "" && preg_match("/\w+@\w+\.\w+/", $_POST["eml"], $matches) && trim($_POST["pwd"]) != ""/* && preg_match("/\S*[^A-Za-z]/", $_POST["pwd"], $matches)*/)
     {
         $sql = "INSERT INTO user_information (password, email, firstName, lastName) VALUES ('$_POST[pwd]', '$_POST[eml]', '$_POST[fname]', '$_POST[lname]')";
     }

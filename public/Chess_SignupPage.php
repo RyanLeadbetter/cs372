@@ -17,7 +17,7 @@ session_start();
                 <div class="container text-center" style="background:none;" >
                     <br>
                     <h1 class="tittle">The <br>Chess Game</h1>
-                    <button class="btn btn-default" href="Chess_LoginPage.php">Return</button>
+                   <a href="Chess_LoginPage.php"> <button class="btn btn-default">Return</button></a>
                 </div>
             </div>
             <br>

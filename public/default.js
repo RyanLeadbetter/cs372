@@ -224,6 +224,7 @@
         socket.emit('login', username);
         $('#page-game').hide();
         $('#page-lobby').show();
+        $("#lightbox").css("display", "none");
     });    
     });
         

@@ -121,7 +121,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         </div>
       </div>
     <script src="lib/socket.io-1.2.0.js"></script>
-    <script src="lib/jquery-1.11.1.js"></script>
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/WinJS.4.0/js/WinJS.min.js"></script>
     <script src="lib/chess.min.js"></script> 
     <script src="lib/chessboard-0.3.0.min.js"></script> 

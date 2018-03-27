@@ -17,7 +17,7 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
         <div class="container text-center" style="background:none;">
             <br>
             <h1 class="tittle">The <br>Chess Game</h1>
-            <!--<button class="btn btn-default">About</button>-->
+            <button class="btn btn-default" onclick="window.open('https://en.wikipedia.org/wiki/Rules_of_chess'); window.location.href = 'https://en.wikipedia.org/wiki/Rules_of_chess'" target="_blank">Don't know what to do? See the rules</button>
         </div>
 </div>
 

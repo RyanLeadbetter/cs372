@@ -219,7 +219,7 @@
         if (isYesNoButton) {
             //$("#button1").removeClass("btn-block");
             $("#button1").addClass("btn-group");
-            $("#button1").clone().attr("id", "button2").appendTo("div.modal-header");
+            $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
             $("#button1").text("Yes");
             $("#button2").text("No");
         }

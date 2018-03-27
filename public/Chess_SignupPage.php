@@ -17,11 +17,10 @@ session_start();
                 <div class="container text-center" style="background:none;" >
                     <br>
                     <h1 class="tittle">The <br>Chess Game</h1>
-                    <button class="btn btn-default">About</button>
+                    <button class="btn btn-default" href="Chess_LoginPage.php">Return</button>
                 </div>
             </div>
             <br>
-<a class='btn' type="button" href="Chess_LoginPage.php"> Return</a>
 <h2 class="text-center">Create your account</h2>
 
 <?php

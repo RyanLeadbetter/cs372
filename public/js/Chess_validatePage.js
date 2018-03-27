@@ -10,9 +10,8 @@ function SignUpForm(event){
 	var a = elements[0].value;  //declare variable a for the firstname value
 	var b = elements[1].value;  //declare variable b for the secondname value
 	var c = elements[2].value;  //declare variable c for the emailaddress value
-	var d = elements[3].value;  //declare variable d for the dateofbirth value
-	var e = elements[4].value;  //declare variable e for the password value
-	var f = elements[5].value;  //declare variable f for the passwordconfirmation value
+	var e = elements[3].value;  //declare variable e for the password value
+	var f = elements[4].value;  //declare variable f for the passwordconfirmation value
 
 	var result = true;    
 	    
@@ -21,14 +20,12 @@ function SignUpForm(event){
 	var fname_v =/^\w+$/;
 	var lname_v =/^\w+$/;
 	var email_v = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-	var dob_v = /^\d{4}-\d{2}-\d{2}$/;
 	var pswd_v = /^(\S*)?\d+(\S*)?$/;
 
 	// initialize uname_msg and pswd_msg
 	document.getElementById("fname_msg").innerHTML ="";
 	document.getElementById("lname_msg").innerHTML ="";
 	document.getElementById("email_msg").innerHTML ="";
-	document.getElementById("date_msg").innerHTML ="";
 	document.getElementById("pwd_msg").innerHTML ="";
 	document.getElementById("pwdr_msg").innerHTML ="";
 
@@ -52,12 +49,6 @@ function SignUpForm(event){
 	   document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: cs215@uregina.ca)";
 	       result = false;
 	    }
-
-	//proper date format
-	if (d==null || d=="" ||dob_v.test(d) == false){  
-	    document.getElementById("date_msg").innerHTML="Date is empty or invalid[example(YYYY-MM-DD): 1992-12-18]";
-	    result = false;
-	}
 
 	//validate password (8 characters long, at least one non
 	if (e==null || e=="" ||pswd_v.test(e) == false){  
@@ -135,7 +126,6 @@ function ResetForm(event)
 	    document.getElementById("fname_msg").innerHTML ="";
 	    document.getElementById("lname_msg").innerHTML ="";
 	    document.getElementById("email_msg").innerHTML ="";
-	    document.getElementById("date_msg").innerHTML ="";
 	    document.getElementById("pwd_msg").innerHTML ="";
 	    document.getElementById("pwdr_msg").innerHTML ="";
 	}

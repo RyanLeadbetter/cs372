@@ -51,8 +51,8 @@ io.on('connection', function(socket) {
         lobbyUsers[socket.userId].emit('gameAccepted', msg);
         lobbyUsers[socket.opponentId].emit('gameAccepted', msg);
      
-        delete lobbyUsers[game.users.white];
-        delete lobbyUsers[game.users.black];   
+        delete lobbyUsers[socket.userId];
+        delete lobbyUsers[socket.opponentId];   
     });
  
     socket.on('invite', function(opponentId) {

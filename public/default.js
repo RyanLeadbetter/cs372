@@ -46,8 +46,6 @@
         
       var saveGameSession = "";
       socket.on('joingame', function(msg) {
-          alert("this");
-       if (saveGameSession == ""){
         saveGameSession = msg;
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
@@ -55,18 +53,17 @@
             displayUpdate("You are being challenged!", "Would you like to accept?", true);
         else
             displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
-        }
-       else {
-              alert('the second part executes');
+      });
+        
+      socket.on('gameAccepted', function (msg) {
+          alert('the game accepted function executes');
           $("#lightbox").hide();
           initGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
-          saveGameSession = "";
-          }
-        });
+      });
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
@@ -240,14 +237,12 @@
     }
     
         
-    $('#button2').click(function() {
-        //socket.emit('joingame', saveGameSession);
-        //socket.emit('resumegame',  game);
-        socket.emit('resign', {userId: username, gameId: serverGame.id});
+    $('#button2').on('click', function() {
+        socket.emit('gameAccepted', saveGameSession);
         alert("request sent");
       });
     
-    $('#button3').click(function() {
+    $('#button3').on('click', function() {
           $("#lightbox").hide();
           socket.emit('resign', {userId: username, gameId: serverGame.id});
       });

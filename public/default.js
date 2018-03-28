@@ -264,6 +264,7 @@
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
         $('#returnButton').show();
+        $('#forfeit').hide();
     });    
     });
         

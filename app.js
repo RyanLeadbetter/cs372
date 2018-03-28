@@ -48,7 +48,7 @@ io.on('connection', function(socket) {
     
     socket.on('gameAccepted', function(msg) {
         socket.emit("gameAccepted", msg);
-        socket.opponentSocket.emit('gameAccepted', msg);
+        (socket.opponentSocket).emit('gameAccepted', msg);
      
         delete lobbyUsers[socket.userId];
         delete lobbyUsers[socket.opponentId];   

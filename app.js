@@ -9,6 +9,7 @@ var port = process.env.PORT || 3000;
 var lobbyUsers = {};
 var users = {};
 var activeGames = {};
+var testing = "if this does not work ima be cheesed";
 
 app.get('/', function(req, res) {
  res.sendFile(__dirname + '/public/default.html');
@@ -47,7 +48,7 @@ io.on('connection', function(socket) {
     }
  
     socket.on('gameAccepted', function(msg) {
-        socket.emit("gameAccepted", socket.opponentId);
+        socket.emit("gameAccepted", testing);
         socket.opponentSocket.emit('gameAccepted', msg); 
     });
  

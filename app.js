@@ -46,6 +46,10 @@ io.on('connection', function(socket) {
         socket.broadcast.emit('joinlobby', socket.userId);
     }
     
+    socket.on('gameAccepted', function(msg) {
+        socket.emit('gameAccepted', msg);
+    }
+ 
     socket.on('invite', function(opponentId) {
         console.log('got an invite from: ' + socket.userId + ' --> ' + opponentId);
         

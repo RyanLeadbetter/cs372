@@ -15,6 +15,7 @@
       ////////////////////////////// 
       
       socket.on('login', function(msg) {
+          alert('executes');
             usersOnline = msg.users;
             updateUserList();
             
@@ -239,6 +240,7 @@
         
     $('#button2').on('click', function() {
         socket.emit('gameAccepted', saveGameSession);
+        socket.emit('login', username);
         alert("request sent");
       });
     

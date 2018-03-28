@@ -42,6 +42,7 @@
               $('#page-game').hide();
             }            
       });
+        
       var saveGameSession = "";
       socket.on('joingame', function(msg) {
         saveGameSession = msg;
@@ -52,6 +53,15 @@
         else
             displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
       });
+        
+      socket.on('gameAccepted', function () {
+          $("#lightbox").hide();
+          initGame(saveGameSession.game);
+        
+        $('#page-lobby').hide();
+        $('#page-game').show();
+        $('#returnButton').hide();
+      }
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
@@ -244,6 +254,7 @@
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
+        socket.emit('gameAccepted');
         return;
     }
      $.ajax({

@@ -88,7 +88,7 @@ var wasForfeited = false;
           displayUpdate("Your opponent has forfeited!", "You win by default", "one");
           result = "";
     });
-     }
+     });
      
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {

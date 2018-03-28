@@ -239,8 +239,7 @@
     
         
     $('#button2').click(function() {
-        alert('socket sends message');
-        socket.emit('invite', username);
+        socket.emit('joingame', saveGameSession);
       });
     
     $('#button3').click(function() {

@@ -252,6 +252,7 @@
     
     $('#button3').on('click', function() {
           $("#lightbox").hide();
+          socket.emit('login', username);
           socket.emit('gameRejected', saveGameSession);
       });
         

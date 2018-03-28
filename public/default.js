@@ -54,7 +54,8 @@
             displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
       });
         
-      socket.on('gameAccepted', function () {
+      socket.on('gameAccepted', function (msg) {
+          alert('the game accepted function executes');
           $("#lightbox").hide();
           initGame(saveGameSession.game);
         
@@ -248,13 +249,14 @@
         return;
     }
     else if ( result == "") {
-        $("#lightbox").hide();
+        /*$("#lightbox").hide();
           initGame(saveGameSession.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
-        $('#returnButton').hide();
-        socket.emit('gameAccepted');
+        $('#returnButton').hide();*/
+        alert('socket sends message');
+        socket.send('gameAccepted');
         return;
     }
      $.ajax({

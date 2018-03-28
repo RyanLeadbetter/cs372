@@ -248,10 +248,8 @@
         
    $('#button1').click(function() {
     if ( result == "") {
-        alert(result);
         return;
     }
-       alert("executes");
      $.ajax({
      type: "POST",
      url: "pvp.php",
@@ -265,6 +263,9 @@
         $("#lightbox").css("display", "none");
         $('#returnButton').show();
         $('#forfeit').hide();
+        $('#button1').hide();
+        $('#button2').show();
+        $('#button3').show();
     });    
     });
         

@@ -34,6 +34,7 @@
       });
       
       socket.on('resign', function(msg) {
+          alert("resign works");
             if (msg.gameId == serverGame.id) {
 
               socket.emit('login', username);
@@ -241,7 +242,8 @@
         
     $('#button2').click(function() {
         //socket.emit('joingame', saveGameSession);
-        socket.emit('resumegame',  game);
+        //socket.emit('resumegame',  game);
+        socket.emit('resign', {userId: username, gameId: serverGame.id});
         alert("request sent");
       });
     

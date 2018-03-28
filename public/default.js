@@ -57,7 +57,7 @@
       socket.on('gameAccepted', function (msg) {
           alert('the game accepted function executes');
           $("#lightbox").hide();
-          initGame(saveGameSession.game);
+          initGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
@@ -249,14 +249,14 @@
         return;
     }
     else if ( result == "") {
-        /*$("#lightbox").hide();
+        $("#lightbox").hide();
           initGame(saveGameSession.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
-        $('#returnButton').hide();*/
+        $('#returnButton').hide();
         alert('socket sends message');
-        socket.send('gameAccepted');
+        socket.emit('gameAccepted', saveGameSession);
         return;
     }
      $.ajax({

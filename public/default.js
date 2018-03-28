@@ -200,6 +200,8 @@
             return false;
             }
       };  
+      
+    var result = "";
         
     var displayMessage = function (message) {
         $("#lightbox").css("display", "block");
@@ -215,7 +217,6 @@
         $("#messageBody").empty();
         $("#messageBody").append("<p>" + message + "</p>");
         if (isYesNoButton) {
-            //$("#button1").removeClass("btn-block");
             $("#button1").addClass("btn-group");
             $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
             $("#button1").text("Yes");

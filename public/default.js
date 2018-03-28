@@ -74,6 +74,7 @@
      
      socket.on('gameRejected', function (msg) {
          $("#lightbox").hide();
+         socket.emit('login', username);
      });
         
       socket.on('move', function (msg) {
@@ -252,7 +253,6 @@
     
     $('#button3').on('click', function() {
           $("#lightbox").hide();
-          socket.emit('login', username);
           socket.emit('gameRejected', saveGameSession);
       });
         

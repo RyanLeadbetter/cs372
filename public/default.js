@@ -62,6 +62,9 @@
         $('#page-game').show();
         $('#returnButton').hide();
         $('#forfeit').show();
+        $('#button1').show();
+        $('#button2').hide();
+        $('#button3').hide();
       });
         
       socket.on('move', function (msg) {

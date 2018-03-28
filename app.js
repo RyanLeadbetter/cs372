@@ -52,6 +52,10 @@ io.on('connection', function(socket) {
         testing.emit('gameAccepted', msg); 
     });
  
+    socket.on('gameRejected', function(msg) {
+        testing.emit('gameRejected', msg); 
+    });
+ 
     socket.on('invite', function(opponentId) {
         console.log('got an invite from: ' + socket.userId + ' --> ' + opponentId);
         

@@ -48,6 +48,7 @@ io.on('connection', function(socket) {
     }
  
     socket.on('gameAccepted', function(msg) {
+        socket.emit("gameAccepted", "change has been made");
         socket.emit("gameAccepted", testing.userId);
         testing.emit('gameAccepted', msg); 
     });

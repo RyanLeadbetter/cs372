@@ -9,7 +9,8 @@ var port = process.env.PORT || 3000;
 var lobbyUsers = {};
 var users = {};
 var activeGames = {};
-var testing;
+var whiteSocket;
+var blackSocket;
 
 app.get('/', function(req, res) {
  res.sendFile(__dirname + '/public/default.html');
@@ -49,15 +50,18 @@ io.on('connection', function(socket) {
  
     socket.on('gameAccepted', function(msg) {
         socket.emit("gameAccepted", msg);
-        testing.emit('gameAccepted', msg); 
+        whiteSocket.emit('gameAccepted', msg); 
     });
  
     socket.on('gameRejected', function(msg) {
-        testing.emit('gameRejected', msg); 
+        whiteSocket.emit('gameRejected', msg); 
     });
  
     socket.on('opponentLeft', function(msg) {
-        testing.emit('opponentLeft', msg);
+        if (msg == "white")
+            blackSocket.emit('opponentLeft', msg);
+        else if (msg == "black")
+            whiteSocket.emit('opponentLeft', msg);
     });
  
     socket.on('invite', function(opponentId) {
@@ -79,7 +83,8 @@ io.on('connection', function(socket) {
         users[game.users.white].games[game.id] = game.id;
         users[game.users.black].games[game.id] = game.id;
      
-        testing = lobbyUsers[game.users.white];
+        whiteSocket = lobbyUsers[game.users.white];
+        blackSocket = lobbyUsers[game.users.black];
      
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});

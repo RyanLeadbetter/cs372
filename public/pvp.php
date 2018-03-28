@@ -131,15 +131,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     <script src="lib/chessboard-0.3.0.min.js"></script> 
     <script src="/default.js"></script>
     <script>
-	    $('#button2').click(function() {
-        socket.emit('joingame', saveGameSession);
-        alert("request sent");
-      });
-    
-    $('#button3').click(function() {
-          $("#lightbox").hide();
-          socket.emit('resign', {userId: username, gameId: serverGame.id});
-      });
+
     </script>
   
   </body>

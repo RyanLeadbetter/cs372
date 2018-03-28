@@ -48,8 +48,7 @@ io.on('connection', function(socket) {
     
     socket.on('gameAccepted', function(msg) {
         socket.emit("gameAccepted", msg);
-        lobbyUsers[socket.userId].emit('gameAccepted', msg);
-        lobbyUsers[socket.opponentId].emit('gameAccepted', msg);
+        socket.opponentSocket.emit('gameAccepted', msg);
      
         delete lobbyUsers[socket.userId];
         delete lobbyUsers[socket.opponentId];   
@@ -57,7 +56,7 @@ io.on('connection', function(socket) {
  
     socket.on('invite', function(opponentId) {
         console.log('got an invite from: ' + socket.userId + ' --> ' + opponentId);
-        socket.opponentId = opponentId;
+        
         socket.broadcast.emit('leavelobby', socket.userId);
         socket.broadcast.emit('leavelobby', opponentId);
       
@@ -73,7 +72,10 @@ io.on('connection', function(socket) {
         
         users[game.users.white].games[game.id] = game.id;
         users[game.users.black].games[game.id] = game.id;
-  
+     
+        socket.opponentId = opponentId;
+        socket.opponentSocket = lobbyUsers[game.users.black];
+     
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});
         lobbyUsers[game.users.black].emit('joingame', {game: game, color: 'black'});

@@ -1,4 +1,4 @@
-
+ var result = "";
 (function () {
     
     WinJS.UI.processAll().then(function () {
@@ -215,8 +215,6 @@
             return false;
             }
       };  
-      
-    var result = "";
         
     var displayMessage = function (message) {
         $("#lightbox").css("display", "block");

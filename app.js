@@ -72,7 +72,7 @@ io.on('connection', function(socket) {
         users[game.users.black].games[game.id] = game.id;
      
         socket.opponentSocket = lobbyUsers[game.users.white];
-        testing = lobbyUsers[game.users.white];
+        testing = socket;
      
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});

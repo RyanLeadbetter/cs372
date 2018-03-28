@@ -71,6 +71,10 @@
         $('#button2').hide();
         $('#button3').hide();
       });
+     
+     socket.on('gameRejected', function (msg) {
+         $("#lightbox").hide();
+     }
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
@@ -248,7 +252,7 @@
     
     $('#button3').on('click', function() {
           $("#lightbox").hide();
-          socket.emit('resign', {userId: username, gameId: serverGame.id});
+          socket.emit('gameRejected', saveGameSession);
       });
         
    $('#button1').click(function() {

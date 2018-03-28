@@ -47,7 +47,7 @@ io.on('connection', function(socket) {
     }
  
     socket.on('gameAccepted', function(msg) {
-        socket.emit("gameAccepted", socket.opponentSocket);
+        socket.emit("gameAccepted", socket.userId);
         opponentSocket.emit('gameAccepted', msg); 
     });
  

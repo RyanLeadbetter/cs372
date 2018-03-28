@@ -1,4 +1,5 @@
  var result = "";
+var wasForfeited = false;
 (function () {
     
     WinJS.UI.processAll().then(function () {
@@ -54,9 +55,9 @@
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
         if (msg.color == "black")
-            displayUpdate("You are being challenged!", "Would you like to accept?", true);
+            displayUpdate("You are being challenged!", "Would you like to accept?", "two");
         else
-            displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
+            displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", "none");
       });
         
       socket.on('gameAccepted', function (msg) {
@@ -77,6 +78,18 @@
          socket.emit('login', username);
      });
         
+     socket.on('opponentLeft', function (msg) {
+         result = "win";
+         $.ajax({
+         type: "POST",
+         url: "pvp.php",
+        data: { 'result': result }
+        }).done(function( msg ) {
+          displayUpdate("Your opponent has forfeited!", "You win by default", "one");
+          result = "";
+    });
+     }
+     
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
            game.move(msg.move);
@@ -234,16 +247,22 @@
         $("#button1").text("Return to lobby");
     };
         
-    var displayUpdate = function (header, message, isYesNoButton) {
+    var displayUpdate = function (header, message, buttonType) {
         $("#lightbox").css("display", "block");
         $("#messageHeader").text(header);
         $("#messageBody").empty();
         $("#messageBody").append("<p>" + message + "</p>");
-        if (!isYesNoButton) {
+        if (buttonType == "none") {
             $("#button1").hide();
             $("#button2").hide();
             $("#button3").hide();
-        }   
+        }
+        else if (buttonType == "ok") {
+            $("#button1").show();
+            $("#button2").hide();
+            $("#button3").hide();
+            $("#button1").text("Return to lobby");
+        }
     }
     
         
@@ -259,6 +278,12 @@
         
    $('#button1').click(function() {
     if ( result == "") {
+        socket.emit('resign', {userId: username, gameId: serverGame.id});
+        
+        socket.emit('login', username);
+        $('#page-game').hide();
+        $('#page-lobby').show();
+        $("#lightbox").css("display", "none");
         return;
     }
      $.ajax({
@@ -266,7 +291,10 @@
      url: "pvp.php",
     data: { 'result': result }
     }).done(function( msg ) {
-         socket.emit('resign', {userId: username, gameId: serverGame.id});
+        if (wasForfeited == false)
+            socket.emit('resign', {userId: username, gameId: serverGame.id});
+        else
+            socket.emit('opponentLeft', saveGameSession);
         
         socket.emit('login', username);
         $('#page-game').hide();

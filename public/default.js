@@ -54,7 +54,7 @@
             displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
       });
         
-      socket.on('gameAccepted', function () {
+      socket.on('gameAccepted', function (msg) {
           alert('the game accepted function executes');
           $("#lightbox").hide();
           initGame(saveGameSession.game);
@@ -237,7 +237,7 @@
     
         
     $('#button2').on('click', function() {
-        socket.send('gameAccepted');
+        socket.emit('gameAccepted', "message");
       });
     
     $('#button3').on('click', function() {

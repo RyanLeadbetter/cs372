@@ -119,7 +119,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         <div id="messageBody" class="modal-body">
         </div>
         <div class="modal-footer">
-          <button id="button1" onclick="selectDifficulty()" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
+          <button id="button1" type="button" class="btn btn-block" data-dismiss="modal">Ok</button>
         </div>
       </div>
     <script src="lib/socket.io-1.2.0.js"></script>

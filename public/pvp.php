@@ -141,10 +141,12 @@ function promptUserLeave() {
     	$("#button1").text("Yes");
 	$("#close").css("display", "block");
 	result = "lose";
+	wasForfeited = true;
     }
     function cancel() {
 	$("#lightbox").css("display", "none");
 	$("#close").css("display", "none");
+	wasForfeited = false;
     }
     </script>
   

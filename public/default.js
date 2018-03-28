@@ -252,6 +252,7 @@
     if ( result == "") {
         return;
     }
+       alert("executes");
      $.ajax({
      type: "POST",
      url: "pvp.php",

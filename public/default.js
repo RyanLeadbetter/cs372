@@ -219,10 +219,8 @@
             $("#button1").addClass("btn-group");
             $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
             $("#button1").text("Yes");
-            $("#button1").attr("onclick", "acceptMatch()");
             $("#button2").text("No");
             $("#button2").css("margin-top", "0px");
-            $("#button2").attr("onclick", "rejectMatch()");
         }
         else
             $("#button1").hide();
@@ -234,18 +232,15 @@
       });
         
    $('#button1').click(function() {
-    if (result == null) {
+    if ( result == "") {
         $("#lightbox").hide();
           initGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
-    }
-    else if ( result == "") {
         return;
     }
-       alert(result);
      $.ajax({
      type: "POST",
      url: "pvp.php",

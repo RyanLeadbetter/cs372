@@ -46,12 +46,11 @@ io.on('connection', function(socket) {
         socket.broadcast.emit('joinlobby', socket.userId);
     }
     
+   var opponentSocket;
+ 
     socket.on('gameAccepted', function(msg) {
         socket.emit("gameAccepted", msg);
-        (socket.opponentSocket).emit('gameAccepted', msg);
-     
-        delete lobbyUsers[socket.userId];
-        delete lobbyUsers[socket.opponentId];   
+        opponentSocket.emit('gameAccepted', msg); 
     });
  
     socket.on('invite', function(opponentId) {
@@ -73,17 +72,14 @@ io.on('connection', function(socket) {
         users[game.users.white].games[game.id] = game.id;
         users[game.users.black].games[game.id] = game.id;
      
-        socket.opponentId = opponentId;
-        socket.opponentSocket = lobbyUsers[game.users.black];
+        opponentSocket = lobbyUsers[game.users.black];
      
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});
-        lobbyUsers[game.users.white].emit('gameAccepted', "message");
         lobbyUsers[game.users.black].emit('joingame', {game: game, color: 'black'});
-        lobbyUsers[game.users.black].emit('gameAccepted', "message");
         
-       // delete lobbyUsers[game.users.white];
-        //delete lobbyUsers[game.users.black];   
+        delete lobbyUsers[game.users.white];
+        delete lobbyUsers[game.users.black];   
         
         socket.broadcast.emit('gameadd', {gameId: game.id, gameState:game});
     });

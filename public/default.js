@@ -241,6 +241,7 @@
         
     $('#button2').click(function() {
         socket.emit('joingame', saveGameSession);
+        alert("request sent");
       });
     
     $('#button3').click(function() {

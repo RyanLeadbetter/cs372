@@ -55,7 +55,7 @@
       });
         
       socket.on('gameAccepted', function (msg) {
-          alert('the game accepted function executes');
+          alert(msg);
           $("#lightbox").hide();
           initGame(saveGameSession.game);
         

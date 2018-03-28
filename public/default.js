@@ -52,19 +52,6 @@
             displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
       });
         
-      function acceptMatch(){
-          $("#lightbox").hide();
-          initGame(msg.game);
-        
-        $('#page-lobby').hide();
-        $('#page-game').show();
-        $('#returnButton').hide();
-      }
-        
-      function rejectMatch() {
-          $("#lightbox").hide();
-      }
-        
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
            game.move(msg.move);
@@ -240,6 +227,19 @@
         else
             $("#button1").hide();
     }
+    
+    function acceptMatch(){
+          $("#lightbox").hide();
+          initGame(msg.game);
+        
+        $('#page-lobby').hide();
+        $('#page-game').show();
+        $('#returnButton').hide();
+      }
+        
+      function rejectMatch() {
+          $("#lightbox").hide();
+      }
         
    /* $('#button1').click(function() {
     if ( result == "") {

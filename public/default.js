@@ -46,6 +46,9 @@ var wasForfeited = false;
         
       var saveGameSession = "";
       socket.on('joingame', function(msg) {
+        $('#button1').hide();
+        $('#button2').show();
+        $('#button3').show();
         saveGameSession = msg;
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;

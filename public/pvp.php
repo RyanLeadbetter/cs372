@@ -12,8 +12,9 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' ) {
     <link rel="stylesheet" href="lib/chessboard-0.3.0.min.css">
     <link rel="stylesheet" href="lib/WinJS.4.0/css/ui-light.css" />
      <link rel="stylesheet" href="/default.css" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+   
    
   </head>
   <body>

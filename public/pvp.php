@@ -102,11 +102,13 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
       </div>
     </div>
     <div class="page game" id='page-game'>
-      <button id='game-back'>Back</button>
-      <button id='game-resign'>Resign</button>
+     <!-- <button id='game-resign'>Resign</button>-->
       <div id='game-board' style="width: 400px">
       </div>
     </div>
+<div>
+	<button id="forfeit" onclick="promptUserLeave()" type="button" class="btn btn-block">Forfeit and Return to Main Menu</button>
+</div>
 <div id="lightbox" class="modal" id="myModal" role="dialog" style="display: none; padding-top: 15%;">
     <div class="modal-dialog">
     
@@ -131,7 +133,19 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     <script src="lib/chessboard-0.3.0.min.js"></script> 
     <script src="/default.js"></script>
     <script>
-
+function promptUserLeave() {
+	$("#lightbox").css("display", "block");
+    	$("#messageHeader").text("Forfeit?");
+    	$("#messageBody").empty();
+    	$("#messageBody").append("<p>This match will be recorded as a loss</p>");
+    	$("#button1").text("Yes");
+	$("#close").css("display", "block");
+	result = "lose";
+    }
+    function cancel() {
+	$("#lightbox").css("display", "none");
+	$("#close").css("display", "none");
+    }
     </script>
   
   </body>

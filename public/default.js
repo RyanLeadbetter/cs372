@@ -42,8 +42,9 @@
               $('#page-game').hide();
             }            
       });
-                  
+      var saveGameSession = "";
       socket.on('joingame', function(msg) {
+        saveGameSession = msg;
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
         if (msg.color == "black")
@@ -233,9 +234,12 @@
       });
         
    $('#button1').click(function() {
-    if ( result == "") {
+    if (saveGameSession == "") {
+        return;
+    }
+    else if ( result == "") {
         $("#lightbox").hide();
-          initGame(msg.game);
+          initGame(saveGameSession.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();

@@ -228,23 +228,24 @@
             $("#button1").hide();
     }
     
-    function acceptMatch(){
+        
+    $('#button2').click(function() {
           $("#lightbox").hide();
+      });
+        
+   $('#button1').click(function() {
+    if (result == null) {
+        $("#lightbox").hide();
           initGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
-      }
-        
-      function rejectMatch() {
-          $("#lightbox").hide();
-      }
-        
-   /* $('#button1').click(function() {
-    if ( result == "") {
+    }
+    else if ( result == "") {
         return;
     }
+       alert(result);
      $.ajax({
      type: "POST",
      url: "pvp.php",
@@ -257,7 +258,7 @@
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
     });    
-    });*/
+    });
         
       var onDrop = function(source, target) {
           removeGreySquares();

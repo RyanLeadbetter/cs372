@@ -78,7 +78,9 @@ io.on('connection', function(socket) {
      
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});
+        lobbyUsers[game.users.white].emit('gameAccepted', "message");
         lobbyUsers[game.users.black].emit('joingame', {game: game, color: 'black'});
+        lobbyUsers[game.users.black].emit('gameAccepted', "message");
         
        // delete lobbyUsers[game.users.white];
         //delete lobbyUsers[game.users.black];   

@@ -228,15 +228,11 @@
         $("#messageHeader").text(header);
         $("#messageBody").empty();
         $("#messageBody").append("<p>" + message + "</p>");
-        if (isYesNoButton) {
-            $("#button1").addClass("btn-group");
-            $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
-            $("#button1").text("Yes");
-            $("#button2").text("No");
-            $("#button2").css("margin-top", "0px");
-        }
-        else
+        if (!isYesNoButton) {
             $("#button1").hide();
+            $("#button2").hide();
+            $("#button3").hide();
+        }   
     }
     
         

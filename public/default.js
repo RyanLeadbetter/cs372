@@ -40,6 +40,11 @@
 
               $('#page-lobby').show();
               $('#page-game').hide();
+              $('#returnButton').show();
+              $('#forfeit').hide();
+              $('#button1').hide();
+              $('#button2').show();
+              $('#button3').show();
             }            
       });
         
@@ -261,11 +266,6 @@
         $('#page-game').hide();
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
-        $('#returnButton').show();
-        $('#forfeit').hide();
-        $('#button1').hide();
-        $('#button2').show();
-        $('#button3').show();
     });    
     });
         

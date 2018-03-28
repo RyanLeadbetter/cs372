@@ -61,6 +61,7 @@
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
+        $('#forfeit').show();
       });
         
       socket.on('move', function (msg) {
@@ -259,6 +260,7 @@
         $('#page-game').hide();
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
+        $('#returnButton').show();
     });    
     });
         

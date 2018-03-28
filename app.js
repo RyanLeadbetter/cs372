@@ -50,6 +50,9 @@ io.on('connection', function(socket) {
         socket.emit("gameAccepted", msg);
         lobbyUsers[socket.userId].emit('gameAccepted', msg);
         lobbyUsers[socket.opponentId].emit('gameAccepted', msg);
+     
+        delete lobbyUsers[game.users.white];
+        delete lobbyUsers[game.users.black];   
     });
  
     socket.on('invite', function(opponentId) {
@@ -75,8 +78,8 @@ io.on('connection', function(socket) {
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});
         lobbyUsers[game.users.black].emit('joingame', {game: game, color: 'black'});
         
-        delete lobbyUsers[game.users.white];
-        delete lobbyUsers[game.users.black];   
+       // delete lobbyUsers[game.users.white];
+        //delete lobbyUsers[game.users.black];   
         
         socket.broadcast.emit('gameadd', {gameId: game.id, gameState:game});
     });

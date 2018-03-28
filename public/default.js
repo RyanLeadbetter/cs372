@@ -74,7 +74,7 @@
      
      socket.on('gameRejected', function (msg) {
          $("#lightbox").hide();
-     }
+     });
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {

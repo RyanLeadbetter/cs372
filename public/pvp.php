@@ -121,7 +121,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         <div class="modal-footer">
           <button style="display: none;" id="button1" type="button" class="btn btn-block" data-dismiss="modal">Return to lobby</button>
           <button id="button2" type="button" class="btn btn-block btn-group" data-dismiss="modal">Yes</button>
-          <button style="margin-top: 0px;" id="button3" type="button" class="btn btn-block btn-group" data-dismiss="modal">No</button>
+          <button id="button3" type="button" class="btn btn-block btn-group" data-dismiss="modal">No</button>
         </div>
       </div>
     <script src="lib/socket.io-1.2.0.js"></script>

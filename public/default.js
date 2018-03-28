@@ -15,7 +15,6 @@
       ////////////////////////////// 
       
       socket.on('login', function(msg) {
-          alert('executes');
             usersOnline = msg.users;
             updateUserList();
             
@@ -35,7 +34,6 @@
       });
       
       socket.on('resign', function(msg) {
-          alert("resign works");
             if (msg.gameId == serverGame.id) {
 
               socket.emit('login', username);
@@ -240,8 +238,6 @@
         
     $('#button2').on('click', function() {
         socket.emit('gameAccepted', saveGameSession);
-        socket.emit('login', username);
-        alert("request sent");
       });
     
     $('#button3').on('click', function() {

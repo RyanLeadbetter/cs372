@@ -107,7 +107,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
       </div>
     </div>
 <div>
-	<button id="forfeit" onclick="promptUserLeave()" type="button" class="btn btn-block">Forfeit and Return to Main Menu</button>
+	<button id="forfeit" onclick="promptUserLeave()" type="button" class="btn btn-block" style="display: none;">Forfeit and Return to Main Menu</button>
 </div>
 <div id="lightbox" class="modal" id="myModal" role="dialog" style="display: none; padding-top: 15%;">
     <div class="modal-dialog">

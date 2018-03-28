@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 var lobbyUsers = {};
 var users = {};
 var activeGames = {};
-var testing = "";
+var testing;
 
 app.get('/', function(req, res) {
  res.sendFile(__dirname + '/public/default.html');

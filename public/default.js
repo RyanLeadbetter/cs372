@@ -238,14 +238,6 @@
         
     $('#button2').click(function() {
           $("#lightbox").hide();
-      });
-        
-   $('#button1').click(function() {
-    if (saveGameSession == "") {
-        return;
-    }
-    else if ( result == "") {
-        $("#lightbox").hide();
           initGame(saveGameSession.game);
         
         $('#page-lobby').hide();
@@ -253,6 +245,14 @@
         $('#returnButton').hide();
         alert('socket sends message');
         socket.emit('gameAccepted', saveGameSession);
+      });
+    
+    $('#button3').click(function() {
+          $("#lightbox").hide();
+      });
+        
+   $('#button1').click(function() {
+    if ( result == "") {
         return;
     }
      $.ajax({

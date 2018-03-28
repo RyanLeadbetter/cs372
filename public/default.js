@@ -250,6 +250,7 @@
         
    $('#button1').click(function() {
     if ( result == "") {
+        alert(result);
         return;
     }
        alert("executes");

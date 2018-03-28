@@ -46,18 +46,24 @@
       socket.on('joingame', function(msg) {
         console.log("joined as game id: " + msg.game.id );
         playerColor = msg.color;
-        if (msg.color == "black") {
+        if (msg.color == "black")
             displayUpdate("You are being challenged!", "Would you like to accept?", true);
-        }
-        else {
-            displayUpdate("Challenge sent", "Response pending...", false);
-        }
-        initGame(msg.game);
+        else
+            displayUpdate("Challenge sent", "Response pending... If you are rejected you will return to the lobby", false);
+      });
+        
+      function acceptMatch(){
+          $("#lightbox").hide();
+          initGame(msg.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
         $('#returnButton').hide();
-      });
+      }
+        
+      function rejectMatch() {
+          $("#lightbox").hide();
+      }
         
       socket.on('move', function (msg) {
         if (serverGame && msg.gameId === serverGame.id) {
@@ -226,11 +232,13 @@
             $("#button1").addClass("btn-group");
             $("#button1").clone().attr("id", "button2").appendTo("div.modal-footer");
             $("#button1").text("Yes");
+            $("#button1").attr("onclick", "acceptMatch()");
             $("#button2").text("No");
             $("#button2").css("margin-top", "0px");
+            $("#button2").attr("onclick", "rejectMatch()");
         }
         else
-            $("#button1").text("Cancel");
+            $("#button1").hide();
     }
         
     $('#button1').click(function() {

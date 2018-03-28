@@ -49,7 +49,7 @@ io.on('connection', function(socket) {
    var opponentSocket;
  
     socket.on('gameAccepted', function(msg) {
-        socket.emit("gameAccepted", socket.userId);
+        socket.emit("gameAccepted", msg);
         opponentSocket.emit('gameAccepted', msg); 
     });
  

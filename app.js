@@ -47,7 +47,8 @@ io.on('connection', function(socket) {
     }
     
     socket.on('gameAccepted', function(msg) {
-        socket.emit('gameAccepted', msg);
+        lobbyUsers[game.users.white].emit('gameAccepted', msg);
+        lobbyUsers[game.users.black].emit('gameAccepted', msg);
     });
  
     socket.on('invite', function(opponentId) {

@@ -57,7 +57,7 @@
       socket.on('gameAccepted', function (msg) {
           alert('the game accepted function executes');
           $("#lightbox").hide();
-          initGame(msg.game);
+          initGame(saveGameSession.game);
         
         $('#page-lobby').hide();
         $('#page-game').show();
@@ -237,7 +237,7 @@
     
         
     $('#button2').on('click', function() {
-        socket.emit('gameAccepted', saveGameSession);
+        socket.send('gameAccepted');
       });
     
     $('#button3').on('click', function() {

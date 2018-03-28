@@ -239,15 +239,16 @@
     }
     
         
-  /*  $('#button2').click(function() {
-        socket.emit('joingame', saveGameSession);
+    $('#button2').click(function() {
+        //socket.emit('joingame', saveGameSession);
+        socket.emit('invite',  user);
         alert("request sent");
       });
     
     $('#button3').click(function() {
           $("#lightbox").hide();
           socket.emit('resign', {userId: username, gameId: serverGame.id});
-      });*/
+      });
         
    $('#button1').click(function() {
     if ( result == "") {

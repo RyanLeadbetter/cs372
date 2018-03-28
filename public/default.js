@@ -240,7 +240,7 @@
         
     $('#button2').click(function() {
         alert('socket sends message');
-        socket.emit('joingame', saveGameSession);
+        socket.emit('invite', username);
       });
     
     $('#button3').click(function() {

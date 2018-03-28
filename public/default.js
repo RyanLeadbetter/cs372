@@ -45,6 +45,7 @@
         
       var saveGameSession = "";
       socket.on('joingame', function(msg) {
+          alert("this");
        if (saveGameSession == ""){
         saveGameSession = msg;
         console.log("joined as game id: " + msg.game.id );

@@ -241,7 +241,7 @@
             $("#button1").hide();
     }
         
-    $('#button1').click(function() {
+   /* $('#button1').click(function() {
     if ( result == "") {
         return;
     }
@@ -257,7 +257,7 @@
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
     });    
-    });
+    });*/
         
       var onDrop = function(source, target) {
           removeGreySquares();

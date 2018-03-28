@@ -237,7 +237,7 @@
     
         
     $('#button2').on('click', function() {
-        socket.emit('gameAccepted', "message");
+        socket.emit('gameAccepted', saveGameSession);
       });
     
     $('#button3').on('click', function() {

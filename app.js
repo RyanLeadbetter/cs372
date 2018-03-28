@@ -46,14 +46,14 @@ io.on('connection', function(socket) {
         socket.broadcast.emit('joinlobby', socket.userId);
     }
     
-    socket.on('gameAccepted', function(msg) {
-        lobbyUsers[game.users.white].emit('gameAccepted', msg);
-        lobbyUsers[game.users.black].emit('gameAccepted', msg);
+    socket.on('gameAccepted', function() {
+        socket.userId.emit('gameAccepted', msg);
+        socket.opponentId.emit('gameAccepted', msg);
     });
  
     socket.on('invite', function(opponentId) {
         console.log('got an invite from: ' + socket.userId + ' --> ' + opponentId);
-        
+        socket.opponentId = opponentId;
         socket.broadcast.emit('leavelobby', socket.userId);
         socket.broadcast.emit('leavelobby', opponentId);
       

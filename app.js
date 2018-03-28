@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 var lobbyUsers = {};
 var users = {};
 var activeGames = {};
-var testing = "if this does not work ima be cheesed";
+var testing = "";
 
 app.get('/', function(req, res) {
  res.sendFile(__dirname + '/public/default.html');
@@ -72,7 +72,7 @@ io.on('connection', function(socket) {
         users[game.users.black].games[game.id] = game.id;
      
         socket.opponentSocket = lobbyUsers[game.users.white];
-        socket.opponentId = "test";
+        testing = opponentId;
      
         console.log('starting game: ' + game.id);
         lobbyUsers[game.users.white].emit('joingame', {game: game, color: 'white'});

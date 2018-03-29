@@ -1,20 +1,5 @@
- var result = "";
+var result = "";
 var wasForfeited = false;
-var displayResults = function (game) {
-    if (game.game_over() && game.in_checkmate) {
-        result = "lose";
-        displayMessage("Checkmate! You lose");
-    }
-    else if (game.game_over() && game.in_draw()) {
-        result = "draw";
-        displayMessage('Draw!');
-    }
-    else if (game.game_over() && game.in_stalemate()) {
-        result = "draw";
-        displayMessage('Stalemate! It\'s a draw');
-    }
-}
-
 (function () {
     
     WinJS.UI.processAll().then(function () {
@@ -107,7 +92,18 @@ var displayResults = function (game) {
         if (serverGame && msg.gameId === serverGame.id) {
            game.move(msg.move);
            board.position(game.fen());
-           displayResults(game);
+           if (game.game_over() && game.in_checkmate) {
+                result = "lose";
+                displayMessage("Checkmate! You lose");
+            }
+           else if (game.game_over() && game.in_draw()) {
+                result = "draw";
+                displayMessage('Draw!');
+            }
+           else if (game.game_over() && game.in_stalemate()) {
+                result = "draw";
+                displayMessage('Stalemate! It\'s a draw');
+            }
         }
       });
      
@@ -336,7 +332,18 @@ var displayResults = function (game) {
           return 'snapback';
         } else {
            socket.emit('move', {move: move, gameId: serverGame.id, board: game.fen()});
-           displayResults(game);
+           if (game.game_over() && game.in_checkmate) {
+                result = "win";
+                displayMessage("Checkmate! You win");
+            }
+             else if (game.game_over() && game.in_draw()) {
+                result = "draw";
+                displayMessage('Draw!');
+            }
+            else if (game.game_over() && game.in_stalemate()) {
+                result = "draw";
+                displayMessage('Stalemate! It\'s a draw');
+            }
         }
       
       };
@@ -372,4 +379,3 @@ var onMouseoverSquare = function(square, piece) {
       };
     });
 })();
-

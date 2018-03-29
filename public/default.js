@@ -297,8 +297,10 @@ var wasForfeited = false;
     data: { 'result': result }
     }).done(function( msg ) {
         if (wasForfeited == false)
+        {
             socket.emit('resign', {userId: username, gameId: serverGame.id});
             location.reload(true);
+        }
         else
             socket.emit('opponentLeft', playerColor);
      /*   

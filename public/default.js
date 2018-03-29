@@ -299,7 +299,7 @@ var wasForfeited = false;
         if (wasForfeited == false)
         {
             socket.emit('resign', {userId: username, gameId: serverGame.id});   //Hey Mel, I changed this - Ash
-            location.reload(true);
+            location.reload(true); //Help, I've been kidnapped. I need your Social Insurance Number in order to be saved
         }
         else
             socket.emit('opponentLeft', playerColor);

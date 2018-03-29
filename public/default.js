@@ -277,18 +277,7 @@ var wasForfeited = false;
    $('#button1').click(function() {
     if ( result == "") {
         socket.emit('resign', {userId: username, gameId: serverGame.id});
-/*        
-        socket.emit('login', username);
-        $('#page-game').hide();
-        $('#page-lobby').show();
-        $("#lightbox").css("display", "none");
-        $('#returnButton').show();
-        $('#forfeit').hide();
-        $('#button1').hide();
-        $('#button2').show();
-        $('#button3').show();
-        
-  */ location.reload(true);   
+ location.reload(true);   
   return;
     }
      $.ajax({
@@ -303,17 +292,7 @@ var wasForfeited = false;
         }
         else
             socket.emit('opponentLeft', playerColor);
-     /*   
-        socket.emit('login', username);
-        $('#page-game').hide();
-        $('#page-lobby').show();
-        $("#lightbox").css("display", "none");
-        $('#returnButton').show();
-        $('#forfeit').hide();
-        $('#button1').hide();
-        $('#button2').show();
-        $('#button3').show();
-      */ location.reload(true); 
+ location.reload(true); 
     });    
     });
         

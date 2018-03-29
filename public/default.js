@@ -277,7 +277,7 @@ var wasForfeited = false;
    $('#button1').click(function() {
     if ( result == "") {
         socket.emit('resign', {userId: username, gameId: serverGame.id});
-        
+/*        
         socket.emit('login', username);
         $('#page-game').hide();
         $('#page-lobby').show();
@@ -287,7 +287,9 @@ var wasForfeited = false;
         $('#button1').hide();
         $('#button2').show();
         $('#button3').show();
-        return;
+        
+  */ location.reload(true);   
+  return;
     }
      $.ajax({
      type: "POST",

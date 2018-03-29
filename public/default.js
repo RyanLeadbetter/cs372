@@ -298,7 +298,7 @@ var wasForfeited = false;
     }).done(function( msg ) {
         if (wasForfeited == false)
         {
-            socket.emit('resign', {userId: username, gameId: serverGame.id});
+            socket.emit('resign', {userId: username, gameId: serverGame.id});   //Hey Mel, I changed this - Ash
             location.reload(true);
         }
         else

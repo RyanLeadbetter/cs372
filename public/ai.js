@@ -209,11 +209,7 @@ $('#button1').click(function() {
     });    
 });
 
-var makeBestMove = function () {
-    var bestMove = getBestMove(game);
-    game.ugly_move(bestMove);
-    board.position(game.fen());
-    renderMoveHistory(game.history());
+var displayResults = function (game) {
     if (game.game_over() && game.in_checkmate) {
         result = "lose";
         displayMessage("Checkmate! You lose");
@@ -226,23 +222,20 @@ var makeBestMove = function () {
         result = "draw";
         displayMessage('Stalemate! It\'s a draw');
     }
+}
+
+var makeBestMove = function () {
+    var bestMove = getBestMove(game);
+    game.ugly_move(bestMove);
+    board.position(game.fen());
+    renderMoveHistory(game.history());
+    displayResults(game);
 };
 
 
 var positionCount;
 var getBestMove = function (game) {
-    if (game.game_over() && game.in_checkmate) {
-        result = "win";
-        displayMessage("Checkmate! You win");
-    }
-    else if (game.game_over() && game.in_draw()) {
-        result = "draw";
-        displayMessage('Draw!');
-    }
-    else if (game.game_over() && game.in_stalemate()) {
-        result = "draw";
-        displayMessage('Stalemate! It\'s a draw');
-    }
+    displayResults(game);
     positionCount = 0;
     var depth = parseInt($('#search-depth').find(':selected').text());
 

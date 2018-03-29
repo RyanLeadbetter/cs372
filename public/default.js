@@ -287,8 +287,8 @@ var wasForfeited = false;
     }).done(function( msg ) {
         if (wasForfeited == false)
         {
-            socket.emit('resign', {userId: username, gameId: serverGame.id});   //Hey Mel, I changed this - Ash
-            location.reload(true); //Help, I've been kidnapped. I need your Social Insurance Number in order to be saved
+            socket.emit('resign', {userId: username, gameId: serverGame.id});
+            location.reload(true);
         }
         else
             socket.emit('opponentLeft', playerColor);

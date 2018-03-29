@@ -1,5 +1,20 @@
  var result = "";
 var wasForfeited = false;
+var displayResults = function (game) {
+    if (game.game_over() && game.in_checkmate) {
+        result = "lose";
+        displayMessage("Checkmate! You lose");
+    }
+    else if (game.game_over() && game.in_draw()) {
+        result = "draw";
+        displayMessage('Draw!');
+    }
+    else if (game.game_over() && game.in_stalemate()) {
+        result = "draw";
+        displayMessage('Stalemate! It\'s a draw');
+    }
+}
+
 (function () {
     
     WinJS.UI.processAll().then(function () {
@@ -92,18 +107,7 @@ var wasForfeited = false;
         if (serverGame && msg.gameId === serverGame.id) {
            game.move(msg.move);
            board.position(game.fen());
-           if (game.game_over() && game.in_checkmate) {
-                result = "lose";
-                displayMessage("Checkmate! You lose");
-            }
-           else if (game.game_over() && game.in_draw()) {
-                result = "draw";
-                displayMessage('Draw!');
-            }
-           else if (game.game_over() && game.in_stalemate()) {
-                result = "draw";
-                displayMessage('Stalemate! It\'s a draw');
-            }
+           displayResults(game);
         }
       });
      
@@ -332,18 +336,7 @@ var wasForfeited = false;
           return 'snapback';
         } else {
            socket.emit('move', {move: move, gameId: serverGame.id, board: game.fen()});
-           if (game.game_over() && game.in_checkmate) {
-                result = "win";
-                displayMessage("Checkmate! You win");
-            }
-             else if (game.game_over() && game.in_draw()) {
-                result = "draw";
-                displayMessage('Draw!');
-            }
-            else if (game.game_over() && game.in_stalemate()) {
-                result = "draw";
-                displayMessage('Stalemate! It\'s a draw');
-            }
+           displayResults(game);
         }
       
       };

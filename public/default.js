@@ -278,7 +278,7 @@ var wasForfeited = false;
     if ( result == "") {
         socket.emit('resign', {userId: username, gameId: serverGame.id});
         
-        socket.emit('login', username);
+       // socket.emit('login', username);
         $('#page-game').hide();
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");
@@ -299,7 +299,7 @@ var wasForfeited = false;
         else
             socket.emit('opponentLeft', playerColor);
         
-        socket.emit('login', username);
+        //socket.emit('login', username);
         $('#page-game').hide();
         $('#page-lobby').show();
         $("#lightbox").css("display", "none");

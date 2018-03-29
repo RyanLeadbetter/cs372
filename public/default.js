@@ -300,7 +300,7 @@ var wasForfeited = false;
             socket.emit('resign', {userId: username, gameId: serverGame.id});
         else
             socket.emit('opponentLeft', playerColor);
-        
+     /*   
         socket.emit('login', username);
         $('#page-game').hide();
         $('#page-lobby').show();
@@ -310,6 +310,7 @@ var wasForfeited = false;
         $('#button1').hide();
         $('#button2').show();
         $('#button3').show();
+      */ location.reload(true); 
     });    
     });
         
